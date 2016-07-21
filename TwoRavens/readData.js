@@ -208,21 +208,49 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                       console.log("hey do we have valuekey here");
                       console.log(valueKey);
 
+                    d3.select("body").selectAll("p")
+                        .data(valueKey)
+                        .enter()
+                        .append("p")
+                        // .text("New paragraph!");
+                        .text(function(d) { return d; });
+
 
 
 
  });
 });
 
+console.log("is valueKey saved?!");
+console.log(valueKey);
 
     // populating the variable list in the left panel
 
+var dataset = [5,10,15,20,25];
+d3.select("body").selectAll("p")
+    .data(valueKey)
+    .enter()
+    .append("p")
+    // .text("New paragraph!");
+    .text(function(d) { return d; });
 
+// d3.select("tab1").selectAll("p")
+//     .data(valueKey)
+//     .enter()
+//     .append("p")
+//     .text("New paragraph!");
 
-d3.select("#tab1").selectAll("p")
-    .html("SOMETHING HERE")
-    .data(valueKey);       //do something with this..
-// d3.select("#tab1").html("SOMETHING HERE");       //do something with this..
+// d3.select("#tab1").selectAll("p")
+//     .html("SOMETHING HERE")
+//     .data(dataset)
+//     .enter()
+//     // .append("p")
+//     .text("New paragraph!");
+
+//
+//     .data(valueKey)
+//     .enter().append(valueKey);       //do something with this..
+// // d3.select("#tab1").html("SOMETHING HERE");       //do something with this..
 
 // d3.select("#tab1").html(valueKey[1]);
 //     .data(valueKey)
