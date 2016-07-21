@@ -25,7 +25,7 @@
 
 <nav id="option" class="navbar navbar-default" role="navigation">
           <div>
-              </span>
+              <!-- </span> -->
               <div class="navbar-header" id="navbarheader">
                   <img src="images/dpi2.png" alt="TwoRavens" width="350" style="margin-left:2em;margin-top:-0.5em" onmouseover="about();" onmouseout="closeabout();">
                       
@@ -85,23 +85,85 @@
                         <div id="tab1" style="display:block;padding:6px 12px;text-align:center">
                         
                         <input type="text" id="searchvar" placeholder="Search Variables and Labels" class="form-control" style="width:100%; margin-bottom:5px;"/>
-                        
+                        <p>hELO</p>
                         
                         </div>
-                        <div id="tab2" style="display:none; margin-top:.5em;">
+                        <!-- <div id="tab2" style="display:none; margin-top:.5em;">
                         </div>
                         <div id="tab3">
                             <p style="padding:.5em 1em;">Select a variable from within the visualization in the center panel to view its summary statistics.</p>
-                        </div>
+                        </div> -->
                     </div>
                     
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
 
         <div class="clearfix"></div>
 
     </div>
+
+<!-- test me -->
+<div class="carousel-inner">
+        </div>
+
+        <div id="legend" class="legendary panel panel-default" style="display:none">
+            <div class="panel-heading">
+                <h3 class="panel-title">Legend  <span class="glyphicon glyphicon-large glyphicon-chevron-down pull-right" style="cursor: pointer; cursor: hand;" data-toggle="collapse" data-target="#collapseLegend"
+                href="#collapseLegend" onclick="$(this).toggleClass('glyphicon-chevron-up').toggleClass('glyphicon-chevron-down');"></span></h3>
+            </div>
+            <div id="collapseLegend" class="panel-collapse collapse in">
+              <div class="panel-body">
+                  <div id="timeButton" class="clearfix hide">
+                      <div class="rectColor">
+                        <svg style="width:20px;height:20px;">
+                          <circle cx="10" cy="10" r="9" stroke="black" stroke-width="2" fill="white" />
+                        </svg>
+                      </div> <div class="rectLabel">Time</div>
+                  </div>
+                  <div id="csButton" class="clearfix hide">
+                      <div class="rectColor">
+                        <svg style="width:20px;height:20px;">
+                          <circle cx="10" cy="10" r="9" stroke="black" stroke-width="2" fill="white" />
+                        </svg>
+                      </div> <div class="rectLabel">Cross Sec</div>
+                  </div>
+                  <div id="dvButton" class="clearfix hide">
+                      <div class="rectColor">
+                        <svg style="width:20px;height:20px;">
+                          <circle cx="10" cy="10" r="9" stroke="black" stroke-width="2" fill="white" />
+                        </svg>
+                      </div> <div class="rectLabel">Dep Var</div>
+                  </div>
+                  <div id="nomButton" class="clearfix hide">
+                      <div class="rectColor">
+                        <svg style="width:20px;height:20px;">
+                          <circle cx="10" cy="10" r="9" stroke="black" stroke-width="2" fill="white" />
+                        </svg>
+                      </div> <div class="rectLabel">Nom Var</div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        
+        <div id="logdiv" class="logbox panel panel-default" style="display:none">
+            <div class="panel-heading">
+                <h3 class="panel-title">History <span id="logicon" class="glyphicon glyphicon-large glyphicon-chevron-down pull-right" style="cursor: pointer; cursor: hand;" data-toggle="collapse" data-target="#collapseLog" href="#collapseLog" onclick="$(this).toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');"></span></h3>
+            </div>
+            <div id="collapseLog" class="panel-collapse collapse in">
+              <div class="panel-body">
+              </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
 
 <script>
     

@@ -90,21 +90,21 @@
 
     <div id="main" class="left svg-leftpanel svg-rightpanel carousel slide">
 
- <!--
+ 
     <div id="main" class="left svg-leftpanel svg-rightpanel carousel slide" data-ride="carousel">
         
-       LINKED CAROUSEL NAV
+       <!-- LINKED CAROUSEL NAV -->
         <ol class="carousel-indicators">
             <li id="delete"><a href="#delete" title="Delete Workspace" onclick="event.preventDefault();"><span class="glyphicon glyphicon-minus" onclick="delSpace();"></span></a></li>
             <li data-target="#main" data-slide-to="m0" class="active" id="navdot0"></li>
-            <li id="create"><a href="#create" title="Create Workspace" onclick="event.preventDefault();"><span class="glyphicon glyphicon-plus" onclick="addSpace();"></span></a></li>
+            <li id="Createeate"><a href="#create" title="Create Workspace" onclick="event.preventDefault();"><span class="glyphicon glyphicon-plus" onclick="addSpace();"></span></a></li>
         </ol>
 
         <a href="#main" id="carouselLeft" style="z-index:7; margin-top:-.625em;" data-slide="prev" title="Scroll carousel left" onclick="$(this).parent('#main').removeClass('rightCarousel').addClass('leftCarousel');"><span class="glyphicon glyphicon-chevron-left"></span></a>
  
         <a href="#main" id="carouselRight" style="z-index:7; margin-top:-.625em;" data-slide="next" title="Scroll carousel right" onclick="$(this).parent('#main').removeClass('leftCarousel').addClass('rightCarousel');"><span class="glyphicon glyphicon-chevron-right"></span></a>
         
-        <!-- Carousel items -->
+        <!-- Carousel items  -->
         <div class="carousel-inner">
         </div>
         
@@ -160,9 +160,9 @@
               <div class="panel-body">
               </div>
             </div>
-        </div>x
+        </div>
         
-        <!-- removed unnecessary replication link on page -->
+        <!-- removed unnecessary replication link on page
         <!-- 
         <div id="ticker" style="position:fixed;height:50px;width:100%;background:#F9F9F9;bottom:0;">
             <a href="somelink" target="_blank" id="logID">Replication</a>
@@ -184,7 +184,7 @@
             <div class="btn-toolbar" role="toolbar" style="margin-left:.5em;margin-top:.5em;"> 
                 <div class="btn-group" style="margin-left:0;">
                     <button type="button" class="btn active" id="btnVariables" title="Click variable name to add or remove the variable pebble from the modeling space." onclick="tabLeft('tab1');">Variables</button>
-                    <button type="button" class="btn btn-default" id="btnSubset" onclick="tabLeft('tab2');">Subset</button>
+                    <!-- <button type="button" class="btn btn-default" id="btnSubset" onclick="tabLeft('tab2');">Subset</button> -->
                 </div>
                 <button type="button" class="btn btn-default ladda-button" id="btnSelect" title="Subset data by the intersection of all selected values." style="display:none; float:right; margin-right:10px" onclick="subsetSelect('btnSelect');" data-spinner-color="#000000" data-style="zoom-in"><span class="ladda-label" style="pointer-events:none;">Select</span></button>
             </div>
@@ -212,22 +212,21 @@
             
           <div id="toggleRpanelicon" class="panelbar"><span>&#9679;<br/>&#9679;<br/>&#9679;<br/>&#9679;</span></div>
           
-          <div class="panel-heading text-center" id="rightpaneltitle">
+         <!--  <div class="panel-heading text-center" id="rightpaneltitle">
               <h3 class="panel-title">Model Selection</h3>
-          </div>
+          </div> -->
          
 
         <!-- <div class="btn-toolbar" role="toolbar" style="margin-left:.5em;margin-top:.5em;"> -->
         <!-- The following is fix for the longstanding button wrapping problem on small screens -->
-        <div class="btn-group btn-group-justified" role="group" style="margin-top:.5em;" aria-label="...">   
+<!--         <div class="btn-group btn-group-justified" role="group" style="margin-top:.5em;" aria-label="...">   
              <!--<div class="btn-group" style="margin-right:0;"> -->
-                 <button type="button" class="btn active" id="btnModels" onclick="tabRight('btnModels');" style="width: 33%">Models</button>
-                 <button type="button" class="btn btn-default" id="btnSetx" onclick="tabRight('btnSetx');" style="width: 34%">Set Covar.</button>
-                 <button type="button" class="btn btn-default" id="btnResults" onclick="tabRight('btnResults');" style="width: 33%">Results</button>
+                 <!-- <button type="button" class="btn active" id="btnModels" onclick="tabRight('btnModels');" style="width: 33%">Models</button> -->
+                 <!-- <button type="button" class="btn btn-default" id="btnSetx" onclick="tabRight('btnSetx');" style="width: 34%">Set Covar.</button> -->
+                 <!-- <button type="button" class="btn btn-default" id="btnResults" onclick="tabRight('btnResults');" style="width: 33%">Results</button> -->
              <!-- </div> -->
-        </div> 
+        <!-- </div>  -->
          
-
             <div class="row-fluid">
                 <div id="rightpanelcontent">
                     <div id="rightContentArea" style="overflow:scroll; height:488px;">
