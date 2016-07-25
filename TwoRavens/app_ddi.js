@@ -746,7 +746,9 @@ var circle = svg.append('svg:g').selectAll('g');
         mousedown_node = null,
         mouseup_node = null;
 var force;
-	function layout(v) {
+
+
+function layout(v) {
 	
 	
 	//console.log("Layout Called");
@@ -1055,7 +1057,322 @@ var force;
     
     d3.select(window)
     .on('click',function(){  //NOTE: all clicks will bubble here unless event.stopPropagation()
-        $('#transList').fadeOut(100);
+        $('#transList').fadeOut(100);function layout(v) {
+
+
+            //console.log("Layout Called");
+            var myValues=[];
+            nodes = [];
+            links = [];
+
+            if(v === "add" | v === "move") {
+                d3.select("#tab1").selectAll("p").style('background-color',varColor);
+                for(var j =0; j < zparams.zvars.length; j++ ) {
+                    var ii = findNodeIndex(zparams.zvars[j]);
+                    if(allNodes[ii].grayout) {continue;}
+                    nodes.push(allNodes[ii]);
+                    var selectMe = zparams.zvars[j].replace(/\W/g, "_");
+                    selectMe = "#".concat(selectMe);
+                    d3.select(selectMe).style('background-color',function(){
+                        return hexToRgba(nodes[j].strokeColor);
+                    });
+
+                }
+
+                for(var j=0; j < zparams.zedges.length; j++) {
+                    var mysrc = nodeIndex(zparams.zedges[j][0]);
+                    var mytgt = nodeIndex(zparams.zedges[j][1]);
+                    links.push({source:nodes[mysrc], target:nodes[mytgt], left:false, right:true});
+                }
+            }
+            else {
+                if(allNodes.length > 2) {
+                    nodes = [allNodes[0], allNodes[1], allNodes[2]];
+                    links = [
+                        {source: nodes[1], target: nodes[0], left: false, right: true },
+                        {source: nodes[0], target: nodes[2], left: false, right: true }
+                    ];
+                }
+                else if(allNodes.length === 2) {
+                    nodes = [allNodes[0], allNodes[1]];
+                    links = [{source: nodes[1], target: nodes[0], left: false, right: true }];
+                }
+                else if(allNodes.length === 1){
+                    nodes = [allNodes[0]];
+                }
+                else {
+                    alert("There are zero variables in the metadata.");
+                    return;
+                }
+            }
+
+            panelPlots(); // after nodes is populated, add subset and setx panels
+            populatePopover(); // pipes in the summary stats shown on mouseovers
+
+
+
+
+            //Rohit Bhattacharjee FORCE D3
+            // init D3 force layout
+
+            //var
+            force=forced3layout(nodes, links, width, height,tick);
+            // init D3 force layout
+            //function forced3layout(var nodes, var links, var width, var height)
+            //var force = d3.layout.force()
+            //.nodes(nodes)
+            //.links(links)
+            //.size([width, height])
+            //.linkDistance(150)
+            //.charge(-800)
+            //.on('tick',tick);  // .start() is important to initialize the layout
+
+
+            //Rohit Bhattacharjee SVG
+            //function svgappend()
+            // define arrow markers for graph links
+            svg.append('svg:defs').append('svg:marker')
+                .attr('id', 'end-arrow')
+                .attr('viewBox', '0 -5 10 10')
+                .attr('refX', 6)
+                .attr('markerWidth', 3)
+                .attr('markerHeight', 3)
+                .attr('orient', 'auto')
+                .append('svg:path')
+                .attr('d', 'M0,-5L10,0L0,5')
+                .style('fill', '#000');
+
+            svg.append('svg:defs').append('svg:marker')
+                .attr('id', 'start-arrow')
+                .attr('viewBox', '0 -5 10 10')
+                .attr('refX', 4)
+                .attr('markerWidth', 3)
+                .attr('markerHeight', 3)
+                .attr('orient', 'auto')
+                .append('svg:path')
+                .attr('d', 'M10,-5L0,0L10,5')
+                .style('fill', '#000');
+
+            // line displayed when dragging new nodes
+            //   var drag_line = svg.append('svg:path')
+            // .attr('class', 'link dragline hidden')
+            //.attr('d', 'M0,0L0,0');
+
+            // handles to link and node element groups
+            // var path = svg.append('svg:g').selectAll('path');
+            //circle = svg.append('svg:g').selectAll('g');
+
+            // mouse event vars
+            //var selected_node = null,
+            //selected_link = null,
+            //mousedown_link = null,
+            //mousedown_node = null,
+            //mouseup_node = null;
+
+            //ROHIT BHATTACHARJEE reset mouse
+            //function resetMouseVars() {
+            //    mousedown_node = null;
+            //    mouseup_node = null;
+            //    mousedown_link = null;
+            //}
+
+            //ROHIT BHATTACHARJEE TICK
+            // update force layout (called automatically each iteration)
+            //function tick() {
+            //    // draw directed edges with proper padding from node centers
+            //    path.attr('d', function(d) {
+            //              var deltaX = d.target.x - d.source.x,
+            //              deltaY = d.target.y - d.source.y,
+            //              dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY),
+            //              normX = deltaX / dist,
+            //              normY = deltaY / dist,
+            //              sourcePadding = d.left ? allR+5 : allR,
+            //              targetPadding = d.right ? allR+5 : allR,
+            //              sourceX = d.source.x + (sourcePadding * normX),
+            //              sourceY = d.source.y + (sourcePadding * normY),
+            //              targetX = d.target.x - (targetPadding * normX),
+            //              targetY = d.target.y - (targetPadding * normY);
+            //              return 'M' + sourceX + ',' + sourceY + 'L' + targetX + ',' + targetY;
+            //              });
+            //
+            //    //  if(forcetoggle){
+            //    circle.attr('transform', function(d) {
+            //                return 'translate(' + d.x + ',' + d.y + ')';
+            //                });
+            //    //  };
+            //
+            //}
+            //
+
+            //  add listeners to leftpanel.left.  every time a variable is clicked, nodes updates and background color changes.  mouseover shows summary stats or model description.
+            //Rohit BHATTACHARJEE add listener
+            addlistener(nodes);
+            //unction addlistener(){
+            //d3.select("#tab1").selectAll("p")
+            //.on("mouseover", function(d) {
+            //    // REMOVED THIS TOOLTIP CODE AND MADE A BOOTSTRAP POPOVER COMPONENT
+            //    $("body div.popover")
+            //    .addClass("variables");
+            //    $("body div.popover div.popover-content")
+            //    .addClass("form-horizontal");
+            //     })
+            //.on("mouseout", function() {
+            //    //Remove the tooltip
+            //    //d3.select("#tooltip").style("display", "none");
+            //    })
+            //.on("click", function varClick(){
+            //    if(allNodes[findNodeIndex(this.id)].grayout) {return null;}
+            //
+            //    d3.select(this)
+            //    .style('background-color',function(d) {
+            //           var myText = d3.select(this).text();
+            //           var myColor = d3.select(this).style('background-color');
+            //           var mySC = allNodes[findNodeIndex(myText)].strokeColor;
+            //
+            //           zparams.zvars = []; //empty the zvars array
+            //           if(d3.rgb(myColor).toString() === varColor.toString()) { // we are adding a var
+            //            if(nodes.length==0) {
+            //                nodes.push(findNode(myText));
+            //                nodes[0].reflexive=true;
+            //            }
+            //            else {nodes.push(findNode(myText));}
+            //            return hexToRgba(selVarColor);
+            //           }
+            //           else { // dropping a variable
+            //
+            //                nodes.splice(findNode(myText)["index"], 1);
+            //                spliceLinksForNode(findNode(myText));
+            //
+            //            if(mySC==dvColor) {
+            //                var dvIndex = zparams.zdv.indexOf(myText);
+            //                if (dvIndex > -1) { zparams.zdv.splice(dvIndex, 1); }
+            //                //zparams.zdv="";
+            //            }
+            //            else if(mySC==csColor) {
+            //                var csIndex = zparams.zcross.indexOf(myText);
+            //                if (csIndex > -1) { zparams.zcross.splice(csIndex, 1); }
+            //            }
+            //            else if(mySC==timeColor) {
+            //                var timeIndex = zparams.ztime.indexOf(myText);
+            //                if (timeIndex > -1) { zparams.ztime.splice(timeIndex, 1); }
+            //            }
+            //           else if(mySC==nomColor) {
+            //                var nomIndex = zparams.znom.indexOf(myText);
+            //                if (nomIndex > -1) { zparams.znom.splice(dvIndex, 1); }
+            //           }
+            //
+            //            nodeReset(allNodes[findNodeIndex(myText)]);
+            //            borderState();
+            //           legend();
+            //            return varColor;
+            //           }
+            //           });
+            //    panelPlots();
+            //    restart();
+            //    });
+            //}
+            //
+
+            //var drag_line = svg.append('svg:path')
+            //    .attr('class', 'link dragline hidden')
+            //    .attr('d', 'M0,0L0,0');
+            //
+            d3.select("#models").selectAll("p") // models tab
+                .on("mouseover", function(d) {
+                    // REMOVED THIS TOOLTIP CODE AND MADE A BOOTSTRAP POPOVER COMPONENT
+                })
+                .on("mouseout", function() {
+                    //Remove the tooltip
+                    //d3.select("#tooltip").style("display", "none");
+                })
+                //  d3.select("#Display_content")
+                .on("click", function(){
+                    var myColor = d3.select(this).style('background-color');
+                    d3.select("#models").selectAll("p")
+                        .style('background-color',varColor);
+                    d3.select(this)
+                        .style('background-color',function(d) {
+                            if(d3.rgb(myColor).toString() === varColor.toString()) {
+                                zparams.zmodel = d.toString();
+                                return hexToRgba(selVarColor);
+                            }
+                            else {
+                                zparams.zmodel = "";
+                                return varColor;
+                            }
+                        });
+                    restart();
+                });
+
+
+
+
+            // update graph (called when needed)
+            //restart();
+            //ROHIT BHATTACHARJEE RESTART FUNCTION
+            //end restart function
+
+            //ROHIT BHATTACHARJEE MOUSE FUNCTIONS
+            // function mousedown(d) {
+            //     // prevent I-bar on drag
+            //     d3.event.preventDefault();
+            //
+            //     // because :active only works in WebKit?
+            //     svg.classed('active', true);
+            //
+            //     if(d3.event.ctrlKey || mousedown_node || mousedown_link) {
+            //         return;
+            //     }
+            //
+            //     restart();
+            // }
+            //
+            // function mousemove(d) {
+            //     if(!mousedown_node) return;
+            //
+            //     // update drag line
+            //     drag_line.attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
+            // }
+            //
+            // function mouseup(d) {
+            //     if(mousedown_node) {
+            //         // hide drag line
+            //         drag_line
+            //         .classed('hidden', true)
+            //         .style('marker-end', '');
+            //     }
+            //     // because :active only works in WebKit?
+            //     svg.classed('active', false);
+            //
+            //     // clear mouse event vars
+            //     resetMouseVars();
+            // }
+
+
+
+
+            // app starts here
+
+            svg.attr('id', function(){
+                return "whitespace".concat(myspace);
+            })
+                .attr('height', height)
+                .on('mousedown', function() {
+                    mousedown(this);
+                })
+                .on('mouseup', function() {
+                    mouseup(this);
+                });
+
+            d3.select(window)
+                .on('click',function(){  //NOTE: all clicks will bubble here unless event.stopPropagation()
+                    $('#transList').fadeOut(100);
+                    $('#transSel').fadeOut(100);
+                });
+
+            restart(); // this is the call the restart that initializes the force.layout()
+            fakeClick();
+        } 		// end layout
         $('#transSel').fadeOut(100);
         });
     
@@ -1702,73 +2019,7 @@ function mousedown(d) {
         }
 
 	//ROHIT BHATTACHARJEE ad listener function
-	function addlistener(nodes){
-	d3.select("#tab1").selectAll("p")
-    .on("mouseover", function(d) {
-        
-		// REMOVED THIS TOOLTIP CODE AND MADE A BOOTSTRAP POPOVER COMPONENT
-        $("body div.popover")
-        .addClass("variables");
-        $("body div.popover div.popover-content")
-        .addClass("form-horizontal");
-         })
-    .on("mouseout", function() {
-        
-										//Remove the tooltip
-											//d3.select("#tooltip").style("display", "none");
-        })
-    .on("click", function varClick(){
-        if(allNodes[findNodeIndex(this.id)].grayout) {return null;}
-	
-        d3.select(this)
-        .style('background-color',function(d) {
-               var myText = d3.select(this).text();
-               var myColor = d3.select(this).style('background-color');
-               var mySC = allNodes[findNodeIndex(myText)].strokeColor;
-               
-               zparams.zvars = []; //empty the zvars array
-               if(d3.rgb(myColor).toString() === varColor.toString()) { // we are adding a var
-                if(nodes.length==0) {
-                    nodes.push(findNode(myText));
-                    nodes[0].reflexive=true;
-                }
-                else {nodes.push(findNode(myText));}
-                return hexToRgba(selVarColor);
-               }
-               else { // dropping a variable
-            
-                    nodes.splice(findNode(myText)["index"], 1);
-                    spliceLinksForNode(findNode(myText));
-               
-                if(mySC==dvColor) {
-                    var dvIndex = zparams.zdv.indexOf(myText);
-                    if (dvIndex > -1) { zparams.zdv.splice(dvIndex, 1); }
-                    //zparams.zdv="";
-                }
-                else if(mySC==csColor) {
-                    var csIndex = zparams.zcross.indexOf(myText);
-                    if (csIndex > -1) { zparams.zcross.splice(csIndex, 1); }
-                }
-                else if(mySC==timeColor) {
-                    var timeIndex = zparams.ztime.indexOf(myText);
-                    if (timeIndex > -1) { zparams.ztime.splice(timeIndex, 1); }
-                }
-               else if(mySC==nomColor) {
-                    var nomIndex = zparams.znom.indexOf(myText);
-                    if (nomIndex > -1) { zparams.znom.splice(dvIndex, 1); }
-               }
 
-                nodeReset(allNodes[findNodeIndex(myText)]);
-                borderState();
-               legend();
-                return varColor;
-               }
-               });
-			   
-        panelPlots();
-        restart();
-        });
-	}
 		//console.log("Search ID at start: "+srchid);
 		
 		
