@@ -450,7 +450,7 @@ function updatedata(value,flag)
         .attr("data-html", "true")
         .attr("onmouseover", "$(this).popover('toggle');")
         .attr("onmouseout", "$(this).popover('toggle');")
-        .attr("data-original-title", "Summary Statistics");
+        .attr("data-original-title", "About this Variable");
     //
     //console.log("d3 enter called");
 

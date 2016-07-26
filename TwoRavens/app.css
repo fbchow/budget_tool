@@ -8,6 +8,13 @@
 
 
 /*formatting for global variables form on upper right hand corner*/
+.form-inline{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+
 .input-xs {
     height: 22px;
     padding: 2px 5px;
@@ -17,8 +24,6 @@
     /*float: right;*/
     right: 0;
 }
-
-
 
 
 svg {
