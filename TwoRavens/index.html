@@ -41,20 +41,25 @@
 <h4 id="dataName" style="display:inline;" onclick="citetoggle=clickcite(citetoggle);" onmouseover="opencite();" onmouseout="closecite(citetoggle);">Dataset Name</h4>
 
 <!-- global parameters upper right  -->
+    <form class="form-inline"
     <div class="text-right">
     <div class="input-group">
         <div class="col-xs-2">
-            <input type="text" class="form-control input-xs" placeholder="episolon">
+            <input type="text" class="form-control input-xs" id="inputEpsilon" placeholder="epsilon">
         </div>
         <div class="col-xs-2">
-            <input type="text" class="form-control input-xs" placeholder="delta">
+            <input type="text" class="form-control input-xs" id="inputDelta" placeholder="delta">
         </div>
         <div class="col-xs-2">
-            <input type="text" class="form-control input-xs" placeholder="beta">
+            <input type="text" class="form-control input-xs" id="inputBeta" placeholder="beta">
         </div>
+        <button type="submit" class="btn btn-primary btn-xs">Submit</button>
     </div>
 </div>
+    </form>
 
+
+    <!--SAD ITERATIONS OF GLOBAL VARIABLES FORM ENTRY-->
               <!--<div class="text-right">-->
                   <!--<div class="col-xs-1">-->
                       <!--<input type="text" class="form-control" placeholder=".col-xs-2">-->
@@ -96,7 +101,7 @@
             
             <div id="toggleLpanelicon" class="panelbar"><span>&#9679;<br/>&#9679;<br/>&#9679;<br/>&#9679;</span></div>
             <div class="panel-heading text-center" id="leftpaneltitle">
-                <h3 class="panel-title">Data Selection</h3>
+                <h3 class="panel-title">Variable Selection</h3>
             </div>
      
             <!-- delete subset and variable buttons -->
