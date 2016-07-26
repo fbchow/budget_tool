@@ -4,6 +4,22 @@
     padding-top: 65px; 
 }
 */
+
+
+
+/*formatting for global variables form on upper right hand corner*/
+.input-xs {
+    height: 22px;
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 1.5; /*If Placeholder of the input is moved up, rem/modify this.*/
+    border-radius: 3px;
+    float: right;
+}
+
+
+
+
 svg {
   background-color: #FFF;
   cursor: default;

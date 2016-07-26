@@ -24,7 +24,6 @@
 
 
 <nav id="option" class="navbar navbar-default" role="navigation">
-          <div>
               <!-- </span> -->
               <div class="navbar-header" id="navbarheader">
                   <img src="images/dpi2.png" alt="TwoRavens" width="350" style="margin-left:2em;margin-top:-0.5em" onmouseover="about();" onmouseout="closeabout();">
@@ -32,36 +31,65 @@
                   <div id="about" class="panel panel-default" style="position:absolute; left:140px; width:380px; display:none; z-index:50;">
                     <div class="panel-body"> </div>
                   </div>
+
+
               </div>              
+
+
 
 <!-- name of dataset -->
 <h4 id="dataName" style="display:inline;" onclick="citetoggle=clickcite(citetoggle);" onmouseover="opencite();" onmouseout="closecite(citetoggle);">Dataset Name</h4>
 
 <!-- global parameters upper right  -->
-<form class="form-inline">
-            <div class="text-right">
-            
-            <div class="form-group">
-            <label class="sr-only" for="inputEpsilon">Epsilon</label>              
-           <label for="inputEpsilon">Epsilon ⍷</label>
-              <input type="number" class="form-control form-control-sm" id="inputEpsilon" placeholder="Enter epsilon">
-            </div>
+    <div class="text-right">
+    <div class="input-group">
+        <div class="col-xs-2">
+            <input type="text" class="form-control input-xs" placeholder="episolon">
+        </div>
+        <div class="col-xs-2">
+            <input type="text" class="form-control input-xs" placeholder="delta">
+        </div>
+        <div class="col-xs-2">
+            <input type="text" class="form-control input-xs" placeholder="beta">
+        </div>
+    </div>
+</div>
 
-            <div class="form-group">
-              <label class="sr-only" for="inputDelta">Delta</label> 
-              <label for="inputDelta">Delta δ</label>
-              <input type="number" class="form-control form-control-sm" id="inputDelta" placeholder="Enter delta">
-            </div>
+              <!--<div class="text-right">-->
+                  <!--<div class="col-xs-1">-->
+                      <!--<input type="text" class="form-control" placeholder=".col-xs-2">-->
+                  <!--</div>-->
+                  <!--<div class="col-xs-1">-->
+                      <!--<input type="text" class="form-control" placeholder=".col-xs-3">-->
+                  <!--</div>-->
+                  <!--<div class="col-xs-1">-->
+                      <!--<input type="text" class="form-control" placeholder=".col-xs-4">-->
+                  <!--</div>-->
+              <!--</div>-->
+<!--<form class="form-inline">-->
+            <!--<div class="text-right">-->
+            <!---->
+            <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="inputEpsilon">Epsilon</label>              -->
+           <!--<label for="inputEpsilon">Epsilon ⍷</label>-->
+              <!--<input type="number" class="form-control form-control-sm" id="inputEpsilon" placeholder="Enter epsilon">-->
+            <!--</div>-->
 
-            <div class="form-group">
-              <label class="sr-only" for="inputBeta">Beta</label>
-              <label for="inputBeta">Beta β</label>
-              <input type="number" class="form-control form-control-sm" id="inputBeta" placeholder="Enter beta">
-            </div>
+            <!--<div class="form-group">-->
+              <!--<label class="sr-only" for="inputDelta">Delta</label> -->
+              <!--<label for="inputDelta">Delta δ</label>-->
+              <!--<input type="number" class="form-control form-control-sm" id="inputDelta" placeholder="Enter delta">-->
+            <!--</div>-->
 
-          <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+            <!--<div class="form-group">-->
+              <!--<label class="sr-only" for="inputBeta">Beta</label>-->
+              <!--<label for="inputBeta">Beta β</label>-->
+              <!--<input type="number" class="form-control form-control-sm" id="inputBeta" placeholder="Enter beta">-->
+            <!--</div>-->
+
+          <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+          <!--</div>-->
+        <!--</form>-->
 
 <!-- left panel div -->
        <div id="leftpanel" class="sidepanel container clearfix">
@@ -106,6 +134,7 @@
 <!-- test me -->
 <div class="carousel-inner">
         </div>
+
 
         <div id="legend" class="legendary panel panel-default" style="display:none">
             <div class="panel-heading">
