@@ -8,10 +8,23 @@
 
 
 /*formatting for global variables form on upper right hand corner*/
+
+#upperbox{
+    margin-left:10em;
+}
+
+.col-xs-2 {
+    padding: 5px;
+}
+
 .form-inline{
     position:absolute;
     top:0;
     right:0;
+    float: right;
+    /*bottom: 15px;*/
+    /*position: relative;*/
+    /*top: 15px;*/
 }
 
 
