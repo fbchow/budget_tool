@@ -307,6 +307,8 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
 
                  });
 });
+
+
 $("#searchvar").ready(function(){
     $("#searchvar").val('');
 
@@ -450,11 +452,78 @@ function updatedata(value,flag)
         .attr("data-html", "true")
         .attr("onmouseover", "$(this).popover('toggle');")
         .attr("onmouseout", "$(this).popover('toggle');")
-        .attr("data-original-title", "About this Variable");
+        .attr("data-original-title", "About this Variable")
+        .on("click", function varClick(){ // we've added a new variable, so we need to add the listener
+
+            var myText = d3.select(this).text();
+            console.log(myText);
+
+            d3.select(this)
+            // .html("HEY WASSUP")
+
+                .style('background-color',function(d) {
+                    console.log("hey what's zparms");
+                    console.log(zparams);
+                    var myText = d3.select(this).text();
+                    var myColor = d3.select(this).style('background-color');
+                    var mySC = allNodes[findNodeIndex(myText)].strokeColor;
+
+                    // if mytext is in selectedvarList, splice it. else push it.
+                    //  console.log("zparams GO THERE");
+                    var found = $.inArray(myText, chosenVars);
+                    if (found  > -1){
+                        chosenVars.splice(found, 1);
+                    }
+                    else{
+                        chosenVars.push(myText);
+                    }
+
+                    console.log(chosenVars);
+
+
+                    if(d3.rgb(myColor).toString() === varColor.toString()) { // we are adding a var
+                        if(nodes.length==0) {
+                            nodes.push(findNode(myText));
+                            nodes[0].reflexive=true;
+                        }
+                        else {nodes.push(findNode(myText));}
+                        return hexToRgba(selVarColor);
+                    }
+                    else { // dropping a variable
+
+                        nodes.splice(findNode(myText)["index"], 1);
+                        spliceLinksForNode(findNode(myText));
+
+                        if(mySC==dvColor) {
+                            var dvIndex = zparams.zdv.indexOf(myText);
+                            if (dvIndex > -1) { zparams.zdv.splice(dvIndex, 1); }
+                        }
+                        else if(mySC==csColor) {
+                            var csIndex = zparams.zcross.indexOf(myText);
+                            if (csIndex > -1) { zparams.zcross.splice(csIndex, 1); }
+                        }
+                        else if(mySC==timeColor) {
+                            var timeIndex = zparams.ztime.indexOf(myText);
+                            if (timeIndex > -1) { zparams.ztime.splice(dvIndex, 1); }
+                        }
+                        else if(mySC==nomColor) {
+                            var nomIndex = zparams.znom.indexOf(myText);
+                            if (nomIndex > -1) { zparams.znom.splice(dvIndex, 1); }
+                        }
+
+                        nodeReset(allNodes[findNodeIndex(myText)]);
+                        //  borderState();
+                        return varColor;
+                    }
+
+                });
+
+        });
+
     //
     //console.log("d3 enter called");
 
-    fakeClick();
+    // fakeClick();
     //restart();
     $("#tab1").children().popover('hide');
    // populatePopover();

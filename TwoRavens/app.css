@@ -173,10 +173,10 @@ div.popover.variables div.popover-content.form-horizontal .form-group {
 }
 
 #leftpanel {
-    border:1px solid #ADADAD;
+  /*  border:1px solid #ADADAD;*/
     width: 20%;
     height:calc(100% - 17px);
-    position:absolute;top:10px;left:10px;
+    position:absolute;top:93px;left:0px;
     background:#F9F9F9;
     padding-right:16px;padding-left:0;padding-top:0;
     z-index:25;
@@ -416,9 +416,19 @@ td {
 #searchvar{
   background: #fff url(icoX.gif) no-repeat right -10px center;
   border: 1px solid #999;
-  padding: 3px 18px 3px 4px;     /* Use the same right padding (18) in jQ! */
+ /* padding: 3px 18px 3px 4px;   */  /* Use the same right padding (18) in jQ! */
   border-radius: 3px;
   transition: background 0.4s;
 }
 #searchvar.x  { background-position: right 5px center; } /* (jQ) Show icon */
-#searchvar.onX{ cursor: pointer; }     
+#searchvar.onX{ cursor: pointer; }
+
+#dataName{
+   position:absolute;left:40%;top:50%
+   /* margin: 0 auto;
+    text-align: center;*/
+}
+/*
+#globalsForm {
+    position:absolute;left:10%;top:10%
+}*/
