@@ -7,6 +7,21 @@
 
 
 
+#bubble_form{
+    /*float: right;*/
+    padding-top: 500px;
+}
+#add_new_bubble{
+    /*float: right;*/
+    padding-left: 500px;
+}
+#submit{
+    /*float: right;*/
+    padding-left: 500px;
+}
+
+
+
 /*formatting for global variables form on upper right hand corner*/
 
 #upperbox{

@@ -18,6 +18,17 @@
         
         <script type="text/javascript" src="d3.v3.min.js"></script>
         <script type="text/javascript" src="plots.js"></script>
+
+
+      <!-- Linking to Javascript/CSS libraries -->
+      <!--<link href="libraries/css/bootstrap.min.css" rel="stylesheet">-->
+      <!--<link href="libraries/css/simple-sidebar.css" rel="stylesheet">-->
+      <script type="text/javascript" src="libraries/js/jquery.js"></script>
+      <script type="text/javascript" src="libraries/js/jquery-1.12.2.js"></script>
+      <script type="text/javascript" src="libraries/js/jquery-ui.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script type="text/javascript" src="libraries/js/bootstrap.min.js"></script>
+
   </head>
   
   <body>
@@ -224,6 +235,9 @@
 
 
 
+
+
+
 <script>
     
 // Open/Close Panels
@@ -248,7 +262,39 @@
 </script>
 
 
+<!--nabib's divs-->
+<div id="bubble_form" class="col-lg-12" style="width: 100%; height:100%; overflow-y: scroll; position: relative; z-index: 0;">
+</div>
 
+<!-- Button for new variables -->
+<div id="add_new_bubble">
+    <button type="button" id="add_new_bubble" onclick="add_new_bubble()">+Add New Variable</button>
+</div>
+
+<br>
+
+<!-- Submit Button -->
+<div id="submit">
+    <button type="button" id="submit" onclick="submit()">SUBMIT</button>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">X</span>
+
+        <div id="modal-content"></div>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+<script src="interface.js"></script>
 <script src="readData.js"></script>
 
 </body>

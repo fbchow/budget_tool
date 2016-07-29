@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Linking to CSS stylesheet -->
+	<link rel="stylesheet" type="text/css" href="interface.css">
+
+	<!-- Linking to Javascript file -->
+	<script type="text/javascript" src="interface.js"></script>
+
+	<!-- Linking to Javascript/CSS libraries -->
+    <link href="libraries/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libraries/css/simple-sidebar.css" rel="stylesheet">
+	<script type="text/javascript" src="libraries/js/jquery.js"></script>
+	<script type="text/javascript" src="libraries/js/jquery-1.12.2.js"></script>
+	<script type="text/javascript" src="libraries/js/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="libraries/js/bootstrap.min.js"></script>
+
+
+	<!-- Naming the Website -->
+	<title>Budgeting Tool</title>
+</head>
+
+
+
+<body onload="variable_bubble()">
+<!-- <body onload="my()"> -->
+	<div id = "header-wrap">
+        <div>
+            <div style="text-align: center; max-height: 7em; overflow: hidden;">
+                <b>Budgeting Tool</b><br><img src="images/logo.png" alt="Logo" style="width: 10em; height: 3em"/>
+                <div id = "sidebar-toggle" style = "text-align: left; font-size: 15px; padding-left: 2em;">
+                    <<
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div id = "mainbar" style="text-align: center; padding-right: 10%; max-height: 2em; overflow: hidden; padding-bottom: 0%;">
+                <div id= "title" contenteditable="true">
+                    Name of Dataset
+                </div>
+                <div>
+                    <div id = "additional-parameters-wrap">
+                        <div>
+                            <table align="center" style="margin-left: 0px auto; margin-right: 0px auto; border-collapse: separate; border-spacing: 10px 0px; padding-bottom: 0.5%;">
+                                <tr>
+                                    <td style="text-align: center;">
+                                        Epsilon (e)<br><input>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        Delta (d)<br><input>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        Beta (b)<br><input>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>                            
+                            <a href="#additional-parameters" class="btn btn-default btn-xs" id="additional-parameters">Additional Parameters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+
+	<div style="width: 100%; height: 1%; background-color: black; padding-top: 86px; position: fixed; z-index: 1;">
+    </div>
+
+    <div style="width: 100%; height: 1%; background-color: black; padding-top: 85px;">
+    </div>
+
+
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Dataverse</a>
+                </li>
+                <li>
+                    <a href="#">Two Ravens</a>
+                </li>
+                <li>
+                    <a href="#">Documentations</a>
+                </li>
+                <li>
+                    <a href="#">Reset</a>
+                </li>
+                <li>
+                    <a href="#">Save</a>
+                </li>
+                <li>
+                    <a href="#">Submit</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="bubble_form" class="col-lg-12" style="width: 100%; height:100%; overflow-y: scroll; position: relative; z-index: 0;">
+                    </div>
+                    
+                    <!-- Button for new variables -->
+                    <div id="add_new_bubble">
+                        <button type="button" id="add_new_bubble" onclick="add_new_bubble()">+Add New Variable</button>
+                    </div>
+                    
+                    <br>
+                    
+                    <!-- Submit Button -->
+                    <div id="submit">
+                        <button type="button" id="submit" onclick="submit()">SUBMIT</button>
+                    </div>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">X</span>
+                            
+                            <div id="modal-content"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="interface.js"></script>
+
+</body>
+
+</html>
