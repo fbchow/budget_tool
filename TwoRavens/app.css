@@ -428,7 +428,10 @@ td {
    /* margin: 0 auto;
     text-align: center;*/
 }
-/*
+
 #globalsForm {
-    position:absolute;left:10%;top:10%
-}*/
+    /*position:absolute;left:10%;top:10%*/
+    position: fixed; right: 0px; top: 10px;
+    width: 20%;
+    /*height: 10px;   */
+}
