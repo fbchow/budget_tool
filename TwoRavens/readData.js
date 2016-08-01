@@ -179,8 +179,6 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                       d3.select("title").html("TwoRavens " +dataname)
 
 
-                      //TESTME iterate through vars
-
                       // temporary values for hold that correspond to histogram bins
                       hold = [.6, .2, .9, .8, .1, .3, .4];
                       var myvalues = [0, 0, 0, 0, 0];
@@ -192,11 +190,7 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                       
                       if(vars[i].getElementsByTagName("labl").length === 0) {lablArray[i]="no label";}
                       else {lablArray[i] = vars[i].getElementsByTagName("labl")[0].childNodes[0].nodeValue;}
-                      
-                      //don't need this histograms code
-                      // var datasetcount = d3.layout.histogram()
-                      // .bins(barnumber).frequency(false)
-                      // (myvalues);
+
                       
                       // this creates an object to be pushed to allNodes. this contains all the preprocessed data we have for the variable, as well as UI data pertinent to that variable, such as setx values (if the user has selected them) and pebble coordinates
                       var obj1 = {id:i, reflexive: false, "name": valueKey[i], "labl": lablArray[i], data: [5,15,20,0,5,15,20], count: hold, "nodeCol":colors(i), "baseCol":colors(i), "strokeColor":selVarColor, "strokeWidth":"1", "subsetplot":false, "subsetrange":["", ""],"setxplot":false, "setxvals":["", ""], "grayout":false};
@@ -205,13 +199,12 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                       
                       // console.log(vars[i].childNodes[4].attributes.type.ownerElement.firstChild.data);
                       allNodes.push(obj1);
-					 
                       }
 
                       //TESTME see if we have a list of variables print out
                       console.log("hey do we have valuekey here");
                       console.log(valueKey);
-
+                    // console.log(typvalueKey);
 
 
                     // populate left side bar with variable names
@@ -239,6 +232,10 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                         .on("click", function varClick(){ // we've added a new variable, so we need to add the listener
 
                             var myText = d3.select(this).text();
+
+                            //populate form testme
+                            variable_selected(myText);
+
                             console.log(myText);
 
                             d3.select(this)

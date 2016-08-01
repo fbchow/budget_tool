@@ -1,75 +1,3 @@
-// // JSON data of r-libraries (Fanny's work will provide these)
-// var JSON_file = '{"rfunctions":[' +
-//     '{"statistic": "Mean", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound"]}, {"stype": "Boolean", "parameter": []}]},' + 
-//     '{"statistic": "Histogram", "statistic_type": [{"stype": "Numerical", "parameter": ["Number of Bins"]}, {"stype": "Boolean", "parameter": []}, {"stype": "Categorical", "parameter": ["Number of Bins"]}]},' +
-//     '{"statistic": "Quantile", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound", "Granularity"]}, {"stype": "Boolean", "parameter": []}]},' +
-//     '{"statistic": "Bivariate Regression", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound", "y-Lower Bound", "y-Upper Bound", "R-coefficient"]}]} ] }';
-
-
-
-// // JSON data of r-libraries (Fanny's work will provide these)
-// var JSON_file = '{"rfunctions":[' +
-//     '{"statistic": "Mean", "stat_info": "Average", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound"], "entry_type": ["number", "number"], "parameter_info": ["The lowest value", "The highest value"]}, {"stype": "Boolean", "parameter": [], "entry_type": [], "parameter_info": []}]},' + 
-//     '{"statistic": "Histogram", "stat_info": "Frequency", "statistic_type": [{"stype": "Numerical", "parameter": ["Number of Bins"], "entry_type": ["pos_integer"], "parameter_info": ["Number of Categories"]}, {"stype": "Boolean", "parameter": [], "entry_type": [], "parameter_info": []}, {"stype": "Categorical", "parameter": ["Number of Bins"], "entry_type": ["pos_integer"], "parameter_info": ["Number of Categories"]}]},' +
-//     '{"statistic": "Quantile", "stat_info": "Range", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound", "Granularity"], "entry_type": ["number", "number", "pos_integer"], "parameter_info": ["The lowest value", "The highest value", "Rate of change"]}, {"stype": "Boolean", "parameter": [], "entry_type": [], "parameter_info": []}]},' +
-//     '{"statistic": "Bivariate Regression", "stat_info": "Regression", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound", "y-Lower Bound", "y-Upper Bound", "R-coefficient"], "entry_type": ["number", "number", "number", "number", "pos_decimal"], "parameter_info": ["The lowest value", "The highest value", "The lowest value of y-component", "The highest value of y-component", "Relationship between x and y axis"]}]} ],' +
-//     '"type_label": [{"stype": "Numerical", "type_info": "Numbers"}, {"stype": "Boolean", "type_info": "True or False"}, {"stype": "Categorical", "type_info": "Categories"}] }';
-
-
-
-// // JSON data of r-libraries (Fanny's work will provide these)
-// var JSON_file = '{"rfunctions":[' +
-//     '{"statistic": "Mean", "stat_info": "Average", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound"]}, {"stype": "Boolean", "parameter": []}]},' + 
-//     '{"statistic": "Histogram", "stat_info": "Frequency", "statistic_type": [{"stype": "Numerical", "parameter": ["Number of Bins"]}, {"stype": "Boolean", "parameter": []}, {"stype": "Categorical", "parameter": ["Number of Bins"]}]},' +
-//     '{"statistic": "Quantile", "stat_info": "Range", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound", "Granularity"]}, {"stype": "Boolean", "parameter": []}]} ],' +
-//     '"type_label": [ {"stype": "Numerical", "type_info": "Numbers"}, {"stype": "Boolean", "type_info": "True or False"}, {"stype": "Categorical", "type_info": "Categories"} ],' +
-//     '"parameter_info": [ {"parameter": "Lower Bound", "entry_type": "number", "pinfo": "Lowest Value"}, {"parameter": "Upper Bound", "entry_type": "number", "pinfo": "Highest Value"}, {"parameter": "Number of Bins", "entry_type": "pos_integer", "pinfo": "Number of Categories"}, {"parameter": "Granularity", "entry_type": "pos_integer", "pinfo": "Spread"} ] }';
-
-
-
-
-// {"stype": "Lower Bound", "entry_type": "number", "info": "Lowest Value"}, {"stype": "Upper Bound", "entry_type": "number", "info": "Highest Value"}, {"stype": "Number of Bins", "entry_type": "pos_integer", "info": "Number of Categories"}, {"stype": "Granularity", "entry_type": "pos_integer", "info": "Spread"},
-
-// // statistic_type has 2 more arrays info text and type validity
-// // mouseover label telling what the statistic is , parameter is, and type is 
-// // what metadata needs (numerical (whole number), text, decimal (can have .), positive, negative #, is order a < b, )
-// // custom logic (metadata checking rules)
-
-
-// // Salil input
-// // beta -> each statistics, default beta but option to change
-// // histogram -> description of what the bins
-
-
-// // text, pos_decimal, neg_decimal, decimal, pos_integer, neg_integer, integer, pos_number, neg_number, number
-
-
-
-
-
-
-// var test = JSON.parse(JSON_file);
-// var func = test.rfunctions;
-// var type_label = test.type_label;
-
-// function my () {
-//     alert(func[0].statistic_type[0].parameter_info);
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // JSON data of r-libraries and functions (Fanny's work will provide these)
 var JSON_file = '{"rfunctions":[' +
     '{"statistic": "Mean", "stat_info": "Average", "statistic_type": [{"stype": "Numerical", "parameter": ["Lower Bound", "Upper Bound"]}, {"stype": "Boolean", "parameter": []}]},' + 
@@ -80,17 +8,19 @@ var JSON_file = '{"rfunctions":[' +
 
 
 // List of variables to make form bubbles (Fanny's work will provide these)
-var JSON_file2 = '{ "varlist": {"active": ["var 1", "var 21", "var 3"], "inactive": ["var11", "var123"]} }'; 
+var JSON_file2 = '{ "varlist": ["var1", "var2", "var3", "var4", "var5"] }'; 
+
 
 // Parses the function and varlist data structure
 var rfunctions = JSON.parse(JSON_file);
 var varlist = JSON.parse(JSON_file2);
 
-
+// List of possible variable
+var variable_list = varlist.varlist;
 
 // Active and inactive variable list
-var varlist_active = varlist.varlist.active;
-var varlist_inactive = varlist.varlist.inactive; 
+var varlist_active = [];
+var varlist_inactive = variable_list; 
 
 
 
@@ -141,7 +71,6 @@ var metadata_list = [];
 for (n = 0; n < rfunctions.parameter_info.length; n++) {
     metadata_list.push(rfunctions.parameter_info[n].parameter);
 };
-
 
 
 
@@ -204,17 +133,19 @@ function reset (row) {
 };
 
 // A default array 
-var array_default = ['default'];
-for (m = 0; m < statistic_list.length; m ++) {
-    array_default.push(0);
-    array_default.push(0);
-    array_default.push(0);
-    array_default.push(0);
+function array_default () {
+    var array_default = ['default'];
+    for (m = 0; m < statistic_list.length; m ++) {
+        array_default.push(0);
+        array_default.push(0);
+        array_default.push(0);
+        array_default.push(0);
+    };
+    for (l = 0; l < metadata_list.length; l++) {
+        array_default.push("");
+    };
+    return array_default;
 };
-for (l = 0; l < metadata_list.length; l++) {
-    array_default.push("");
-};
-
 
 
 // Make the category dropdown
@@ -231,6 +162,7 @@ function list_of_types (variable) {
 function type_selected (type_chosen, variable) {
     reset(inputted_metadata[variable]);
     inputted_metadata[variable][0] = type_chosen;
+    generate_epsilon_table();
 
     if (type_chosen != "default") {
         document.getElementById("released_statistics_" + variable).innerHTML = list_of_statistics(type_chosen, variable);
@@ -248,7 +180,7 @@ function list_of_statistics (type_chosen, variable) {
     var options = "";
     eval("var type_chosen_list = " + type_chosen + "_stat_list;")
     for (n = 0; n < type_chosen_list.length; n++) {
-        options += "<input type='checkbox' name='" + type_chosen_list[n].replace(/\s/g, '_') + "' onclick='Parameter_Populate(this," + n + ",\"" + variable + "\",\"" + type_chosen + "\")' id='" + type_chosen_list[n].replace(/\s/g, '_') + "_" + variable + "'> <span title='" + rfunctions.rfunctions[(column_index[type_chosen_list[n].replace(/\s/g, '_')] - 1) / 4].stat_info + "'>" + type_chosen_list[n] + "</span><br>";
+        options += "<input type='checkbox' name='" + type_chosen_list[n].replace(/\s/g, '_') + "' onclick='Parameter_Populate(this," + n + ",\"" + variable + "\",\"" + type_chosen + "\"); generate_epsilon_table();' id='" + type_chosen_list[n].replace(/\s/g, '_') + "_" + variable + "'> <span title='" + rfunctions.rfunctions[(column_index[type_chosen_list[n].replace(/\s/g, '_')] - 1) / 4].stat_info + "'>" + type_chosen_list[n] + "</span><br>";
     };
     return options;
 };
@@ -280,7 +212,7 @@ function make_bubble (variable) {
                 "<div><button onclick='delete_variable(\"" + variable_raw + "\")'>DELETE</button></div>" + 
             "</div>" +
         "</div>" +
-        "<hr style='margin-top: 0.25em'>" +
+        "<br>" +
     "</div>";
     return blank_bubble;
 };
@@ -317,7 +249,7 @@ function parameter_fields (variable, type_chosen) {
 
     var needed_parameters = [];
     for (i = 0; i < ppparameter.length; i++) {
-        if (inputted_metadata[variable][column_index[pparameter[i].replace(/\s/g, '_')]] == 1) {
+        if (inputted_metadata[variable][column_index[pparameter[i].replace(/\s/g, '_')]] > 0) {
             needed_parameters = needed_parameters.concat(rfunctions.rfunctions[ppparameter[i].rfunctions_index].statistic_type[ppparameter[i].parameter_index].parameter);
         }
         else {}
@@ -330,7 +262,7 @@ function parameter_fields (variable, type_chosen) {
     // uses .unique() to get all unique values and iterate through
     for (j = 0; j < needed_parameters.length; j++) {
         // creates html list in .sort() (alphabet order)
-        parameter_field += "<span title='" + rfunctions.parameter_info[(column_index[needed_parameters[j].replace(/\s/g, '_')] - (4 * type_list.length) - 1)].pinfo + "'>" + needed_parameters[j] + ":</span> <input type='text' value='" + inputted_metadata[variable][column_index[needed_parameters[j].replace(/\s/g, '_')]] + "' name='" + needed_parameters[j].replace(/\s/g, '_') + "'id='input_" + needed_parameters[j].replace(/\s/g, '_') + "_" + variable + "' oninput='Parameter_Memory(this,\"" + variable + "\")'><br>"
+        parameter_field += "<span title='" + rfunctions.parameter_info[(column_index[needed_parameters[j].replace(/\s/g, '_')] - (4 * type_list.length) - 1)].pinfo + "'>" + needed_parameters[j] + ":</span> <input type='text' value='" + inputted_metadata[variable][column_index[needed_parameters[j].replace(/\s/g, '_')]] + "' name='" + needed_parameters[j].replace(/\s/g, '_') + "'id='input_" + needed_parameters[j].replace(/\s/g, '_') + "_" + variable + "' oninput='Parameter_Memory(this,\"" + variable + "\")' onfocusout='ValidateInput(this, \"" + rfunctions.parameter_info[(column_index[needed_parameters[j].replace(/\s/g, '_')] - (4 * type_list.length) - 1)].entry_type + "\", \"" + variable + "\")'><br>"
     };
 
     // prints this all out, display seems smooth
@@ -346,6 +278,9 @@ function Parameter_Populate (stat, stat_index, variable, type_chosen) {
     if ($("#" + stat.id).prop('checked')) {
         // Updating the master data-array
         inputted_metadata[variable][column_index[stat.name]] = 1;
+
+        // In case zero parameters needed
+        epsilon_table_validation(variable); 
         
         // calls the parameter HTML generating function
         parameter_fields(variable, type_chosen);
@@ -371,91 +306,131 @@ function Parameter_Memory (parameter, variable) {
 
 
 
-// Get the modal
-var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn_add = document.getElementById("add_new_bubble");
-var btn_submit = document.getElementById("submit");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
-btn_add.onclick = function() {
-    modal.style.display = "block";
-};
-btn_submit.onclick = function() {
-    modal.style.display = "block";
-};
+// Regex: http://www.w3schools.com/jsref/jsref_obj_regexp.asp
+// Validate form based on entry_type info
+function ValidateInput (input, valid_entry, variable) {
+    // Actual input validation
+    var entry = input.value;
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-};
+    if (entry == "") {
+        epsilon_table_validation(variable);    
+        return false;
+    } 
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (valid_entry == "general_text") {
+        if (!entry.match(/^[a-zA-Z0-9]+$/)) {
+            alert("Invalid entry. Entry can only contain numbers and letters only!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
     }
-};
 
-
-
-// Updates varlist_active, varlist_inactive, and creates bubble
-function create_new_variable () {
-    var new_variable = document.getElementById('new_variable_to_add').value;
-    var new_variable_name = new_variable.slice(2, new_variable.length);
-    var new_variable_number = new_variable.slice(0, 1);
-    if (new_variable_name != "default") {
-        varlist_inactive.splice(new_variable_number, 1);
-        varlist_active.push(new_variable_name);
-        inputted_metadata[new_variable_name] = array_default;
-        $("#bubble_form").append(make_bubble(new_variable_name));
+    if (valid_entry == "text_only") {
+        if (!entry.match(/^[a-zA-Z]+$/)) {
+            alert("Invalid entry. Entry can only contain letters only!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
     }
-    else {}
-    modal.style.display = "none";
+
+    if (valid_entry == "pos_decimal") {
+        if (!entry.match(/^[+]?[0-9]*[.]{1}[0-9]+$/)) {
+            alert("Invalid entry. Entry can only be positive decimals!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+
+    if (valid_entry == "neg_decimal") {
+        if (!entry.match(/^[-]{1}[0-9]*[.]{1}[0-9]+$/)) {
+            alert("Invalid entry. Entry can only be negative decimals. Must have negative sign (-) in front!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "decimal") {
+        if (!entry.match(/^[+-]?[0-9]*[.]{1}[0-9]+$/)) {
+            alert("Invalid entry. Entry can only be decimals!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "pos_integer") {
+        if (!entry.match(/^[+]?[0-9]+$/)) {
+            alert("Invalid entry. Entry can only be positive integer!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "neg_integer") {
+        if (!entry.match(/^[-]{1}[0-9]+$/)) {
+            alert("Invalid entry. Entry can only be negative integer. Must have negative sign (-) in front!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "integer") {
+        if (!entry.match(/^[+-]?[0-9]+$/)) {
+            alert("Invalid entry. Entry can only be integers!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "pos_number") {
+        if (!(entry.match(/^[+]?[0-9]+[.]?$/) || entry.match(/^[+]?[0-9]*[.]{1}[0-9]+$/))) {
+            alert("Invalid entry. Entry can only be positive numbers!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "neg_number") {
+        if (!(entry.match(/^[-]{1}[0-9]+[.]?$/) || entry.match(/^[-]{1}[0-9]*[.]{1}[0-9]+$/))) {
+            alert("Invalid entry. Entry can only be negative numbers!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+    
+    if (valid_entry == "number") {
+        if (!(entry.match(/^[+-]?[0-9]+[.]?$/) || entry.match(/^[+-]?[0-9]*[.]{1}[0-9]+$/))) {
+            alert("Invalid entry. Entry can only be numbers!");
+            inputted_metadata[variable][column_index[input.name]] = "";
+            input.value = "";
+        }
+    }
+
+    epsilon_table_validation(variable);    
 };
 
-// Modal Windows: http://www.w3schools.com/howto/howto_css_modals.asp
-// Adds new bubbles for the inactive variable list
 
-// Updates the varlist_active and varlist_inactive
-function add_new_bubble () {
-    var possible_variables = "";
-    for (n = 0; n < varlist_inactive.length; n++) {
-        possible_variables += "<option id='" + varlist_inactive[n].replace(/\s/g, '_') + "_add_new_bubble' value='" + n + "_" + varlist_inactive[n].replace(/\s/g, '_') + "'>" + varlist_inactive[n].replace(/\s/g, '_') + "</option>";
+// Epsilon Table Validation
+function epsilon_table_validation (variable) {
+    var type_chosen = inputted_metadata[variable][0];
+    eval("var pparameter = " + type_chosen + "_stat_list;");
+    eval("var ppparameter = " + type_chosen + "_stat_parameter_list;");    
+    for (q = 0; q < pparameter.length; q++) {
+        if (inputted_metadata[variable][column_index[pparameter[q]]] > 0) {
+            var sparameter = rfunctions.rfunctions[(ppparameter[(pparameter.indexOf(pparameter[q]))].rfunctions_index)].statistic_type[ppparameter[pparameter.indexOf(pparameter[q])].parameter_index].parameter;
+            inputted_metadata[variable][column_index[pparameter[q]]] = 2 + sparameter.length;
+            for (r = 0; r < sparameter.length; r++) {
+                if (inputted_metadata[variable][column_index[sparameter[r].replace(/\s/g, '_')]] != "") {
+                    inputted_metadata[variable][column_index[pparameter[q]]] = inputted_metadata[variable][column_index[pparameter[q]]] - 1;  
+                }
+            };
+        }
     };
-
-    var modal_window = 
-    "Please select a variable: <select id='new_variable_to_add'>" +
-        "<option id='default_add_new_bubble' value='__default'> -- </option>" +
-        possible_variables +
-    "</select>" +
-    "<br>" +
-    "<button onclick='create_new_variable()'>Confirm</button>";
-
-    document.getElementById('modal-content').innerHTML = modal_window;
+    generate_epsilon_table();  
 };
 
-
-
-
-// Remove variable
-// http://red-team-design.com/removing-an-element-with-plain-javascript-remove-method/
-function delete_variable (variable) {
-    var index = varlist_active.indexOf(variable);
-    if (varlist_active.length == 1) {
-        alert("YOU MUST HAVE AT LEAST ONE VARIABLE ON THE FORM");
-    }
-    else {
-        varlist_active.splice(index, 1);
-        varlist_inactive.push(variable);
-        delete inputted_metadata[variable.replace(/\s/g, '_')];
-        document.getElementById(variable.replace(/\s/g, '_')).remove();
-    }
-};
 
 
 
@@ -472,7 +447,7 @@ function hold_status (hold_checkbox, variable, statistic) {
 
 
 // Creates Epsilon 
-function submit () {
+function generate_epsilon_table () {
     var epsilon_table = 
     "<table id='epsilon_table' style='width: 100%;'>" +
         "<tr>" +
@@ -482,20 +457,20 @@ function submit () {
             "<td style='font-weight: bold;'>" +
                 "Statistic" +
             "</td>" +
-            "<td style='font-weight: bold;'>" +
+            "<td title='Privacy parameter' style='font-weight: bold;'>" +
                 "Epsilon" +
             "</td>" +
-            "<td style='font-weight: bold;'>" +
+            "<td title='How accurate?' style='font-weight: bold;'>" +
                 "Accuracy" +
             "</td>" +
-            "<td style='font-weight: bold;'>" +
+            "<td title='Wanna fix the epsilon/accuracy value?' style='font-weight: bold;'>" +
                 "Hold" +
             "</td>" +
         "</tr>";
     for (n = 0; n < varlist_active.length; n++) {
         for (m = 0; m < statistic_list.length; m++) {
             var stat_index = 4 * m + 1;
-            if (inputted_metadata[varlist_active[n].replace(/\s/g, '_')][stat_index] == 1) {
+            if (inputted_metadata[varlist_active[n].replace(/\s/g, '_')][stat_index] > 0) {
                 epsilon_table += 
                 "<tr>" +
                     "<td>" +
@@ -503,20 +478,33 @@ function submit () {
                     "</td>" +
                     "<td>" +
                         statistic_list[m] +
-                    "</td>" +
-                    "<td>" +
-                        "0" +
-                    "</td>" +
-                    "<td>" +
-                        "<input type='text' value='" + inputted_metadata[varlist_active[n].replace(/\s/g, '_')][stat_index + 2] + "' name='accuracy_" + statistic_list[m] + "' oninput='Parameter_Memory(this,\"" + varlist_active[n].replace(/\s/g, '_') + "\")'>" +
-                    "</td>" +
-                    "<td>";
-                    
-                    if (inputted_metadata[varlist_active[n].replace(/\s/g, '_')][column_index["hold_" + statistic_list[m]]] == 1) {    
-                        epsilon_table += "<input type='checkbox' id='hold_" + varlist_active[n].replace(/\s/g, '_') + "_" + statistic_list[m] + "' onclick='hold_status(this,\"" + varlist_active[n].replace(/\s/g, '_') + "\",\"" + statistic_list[m] + "\")' checked>";
+                    "</td>"; 
+
+                    if (inputted_metadata[varlist_active[n].replace(/\s/g, '_')][stat_index] == 2) {
+                        epsilon_table += 
+                        "<td>" +
+                            "0" +
+                        "</td>" +
+                        "<td>" +
+                            "<input type='text' value='" + inputted_metadata[varlist_active[n].replace(/\s/g, '_')][stat_index + 2] + "' name='accuracy_" + statistic_list[m] + "' onfocusout='ValidateInput(this, \"pos_number\", \"" + varlist_active[n].replace(/\s/g, '_') + "\")' oninput='Parameter_Memory(this,\"" + varlist_active[n].replace(/\s/g, '_') + "\")'>" +
+                        "</td>" +
+                        "<td>";
+                        
+                        if (inputted_metadata[varlist_active[n].replace(/\s/g, '_')][column_index["hold_" + statistic_list[m]]] == 1) {    
+                            epsilon_table += "<input type='checkbox' id='hold_" + varlist_active[n].replace(/\s/g, '_') + "_" + statistic_list[m] + "' onclick='hold_status(this,\"" + varlist_active[n].replace(/\s/g, '_') + "\",\"" + statistic_list[m] + "\")' checked>";
+                        }
+                        else {
+                            epsilon_table += "<input type='checkbox' id='hold_" + varlist_active[n].replace(/\s/g, '_') + "_" + statistic_list[m] + "' onclick='hold_status(this,\"" + varlist_active[n].replace(/\s/g, '_') + "\",\"" + statistic_list[m] + "\")'>";
+                        }
                     }
+
                     else {
-                        epsilon_table += "<input type='checkbox' id='hold_" + varlist_active[n].replace(/\s/g, '_') + "_" + statistic_list[m] + "' onclick='hold_status(this,\"" + varlist_active[n].replace(/\s/g, '_') + "\",\"" + statistic_list[m] + "\")'>";
+                        epsilon_table += 
+                        "<td title='Epsilon will be edittable after putting in the necessary metadata fields.'>" +
+                        "</td>" +
+                        "<td title='Accuracy will be edittable after putting in the necessary metadata fields.'>" +
+                        "</td>" +
+                        "<td title='Hold status will be edittable after putting in the necessary metadata fields.'>";
                     }
                     
                 epsilon_table +=    
@@ -527,11 +515,9 @@ function submit () {
         };
     };
     epsilon_table += 
-    "</table>" +
-    "<br>" +
-    "<button onclick='report()'>Confirm</button>";
+    "</table>";
 
-    document.getElementById('modal-content').innerHTML = epsilon_table;
+    document.getElementById('epsilon_sidebar').innerHTML = epsilon_table;
 };
 
 
@@ -610,12 +596,108 @@ function report () {
 
 
 
-$(document).ready(function () {	
-	// sidebar action, with toggle and text-switch
-	$("#sidebar-toggle").click(function() {
-        $(this).text(function(i, v){
-        	return v === '>>' ? '<<' : '>>'
+// $(document).ready(function () {	
+// 	// sidebar action, with toggle and text-switch
+// 	$("#sidebar-toggle").click(function() {
+//         $(this).text(function(i, v){
+//         	return v === '>>' ? '<<' : '>>'
+//         });
+//         $("#wrapper").toggleClass("toggled");
+//     });
+// });
+
+
+
+
+// Search box logic: https://www.html5andbeyond.com/live-search-a-html-list-using-jquery-no-plugin-needed/
+jQuery(document).ready(function($) {
+    $('.live-search-list li').each(function() {
+        $(this).attr('data-search-term', $(this).text().toLowerCase());
+    });
+
+    $('.live-search-box').on('keyup', function() {
+        var searchTerm = $(this).val().toLowerCase();
+
+        $('.live-search-list li').each(function() {
+            if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+                $(this).show();
+            } 
+            else {
+                $(this).hide();
+            }
         });
-        $("#wrapper").toggleClass("toggled");
     });
 });
+
+
+
+
+// Adding variables to the variable selection column
+function populate_variable_selection_sidebar () {
+    variable_selection_sidebar = ""
+    for (n = 0; n < variable_list.length; n++) {
+        variable_selection_sidebar += "<li id='selection_sidebar_" + variable_list[n] + "' data-search-term='" + variable_list[n] + "' onclick='variable_selected(\""+variable_list[n]+"\")'>" + variable_list[n] + "</li>";
+    };
+    $("#variable_sidebar").append(variable_selection_sidebar);
+};
+
+
+
+
+// CSS when variable selected
+var variable_selected_class = 
+    "color: black;" +
+    "list-style: none;" +
+    "padding: 5px;" + 
+    "margin: 5px 0;" +
+    "border: solid 5px green;"+
+    "text-align: center;";
+
+// CSS when variable unselected
+var variable_unselected_class = 
+    "color: black;" +
+    "list-style: none;" +
+    "padding: 5px;" + 
+    "margin: 5px 0;" +
+    "border: solid 5px red;"+
+    "text-align: center;";
+
+// Variable selection boxes change to signify selection
+function variable_selected (variable) {
+    if (inputted_metadata[variable] == undefined) {
+        //document.getElementById("selection_sidebar_" + variable).style.cssText = variable_selected_class;
+        create_new_variable(variable);
+    }
+    else {
+        delete_variable(variable);
+    }
+    //document.getElementById("live-search-box").value = "";
+    //$('.live-search-list li').each(function() {
+    //    $(this).show();
+    //});
+};
+
+
+
+
+
+// Updates varlist_active, varlist_inactive, and creates bubble
+function create_new_variable (variable) {
+    var variable_index = varlist_inactive.indexOf(variable);
+    varlist_inactive.splice(variable_index, 1);
+    varlist_active.push(variable);
+    inputted_metadata[variable] = array_default();
+    $("#bubble_form").append(make_bubble(variable));
+};
+
+
+// Remove variable
+function delete_variable (variable) {
+    //document.getElementById("selection_sidebar_" + variable).style.cssText = variable_unselected_class;
+    var variable_index = varlist_active.indexOf(variable);
+    varlist_active.splice(variable_index, 1);
+    varlist_inactive.push(variable);
+    delete inputted_metadata[variable.replace(/\s/g, '_')];
+    document.getElementById(variable.replace(/\s/g, '_')).remove();
+    generate_epsilon_table();
+};
