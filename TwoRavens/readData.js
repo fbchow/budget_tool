@@ -210,12 +210,11 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
 });
 
 
+// beginning of search bar code
 $("#searchvar").ready(function(){
     $("#searchvar").val('');
 
 });
-
-
 function tog(v){
     return v?'addClass':'removeClass';
 }
@@ -229,16 +228,11 @@ $(document).on('input', '#searchvar', function() {
     updatedata(valueKey,0);
 });
 
-
-
-
-
 var srchid=[];
 var vkey=[];
 $("#searchvar").on("keyup",function search(e) {
     //if(e.keyCode == 8 ) {
     //d3.select("#tab1").selectAll("p")
-
     $("#tab1").children().popover('hide');
     //}
     var flag=0;
@@ -253,24 +247,17 @@ $("#searchvar").on("keyup",function search(e) {
         return;
     }
 
-    for(var i=0;i<allNodes.length;i++)
-    {
-        if((allNodes[i]["name"].indexOf($(this).val())!=-1))
-        {
+    for(var i=0;i<allNodes.length;i++) {
+        if((allNodes[i]["name"].indexOf($(this).val())!=-1)) {
             srchid[k]=i;
-
             k=k+1;}
-    }
-    for(var i=0;i<allNodes.length;i++)
-    {
+        }
+    for(var i=0;i<allNodes.length;i++) {
         if((allNodes[i]["labl"].indexOf($(this).val())!=-1) && ($.inArray(i, srchid)==-1))
         {
-
             srchid[k]=i;
-
             k=k+1;}
     }
-
     //console.log(srchid);
     lngth=srchid.length;
     if(k==0){
@@ -280,69 +267,62 @@ $("#searchvar").on("keyup",function search(e) {
         //return;
     }
     else{
-
         flag=1;
         vkey=[];
-
         k=0;
         var i=0;
         for( i=0;i<srchid.length;i++)	{
             vkey[i]=valueKey[srchid[i]];
-
         }
         //console.log("value of i= " + i);
         //console.log("vkey before  " + vkey);
-
         for(var j=0;j<valueKey.length;j++){
-
             if($.inArray(valueKey[j],vkey)==-1){
                 vkey[i]=valueKey[j];
                 i++;
             }
-
         }
     }
-
     //console.log("vkey Length: "+vkey.length);
     //console.log("valueKey length: "+valueKey.length);
-
     updatedata(vkey,flag);
     //}
 });
+// end of search bar code
 
-function updatedata(value,flag)
-{
+
+
+// updates data
+function updatedata(value,flag){
     var clr='#000000' ;
     //console.log("updatedata() called");
     var nodename=[];
     var bordercol='#000000';
     var borderstyle='solid';
-    for(var i=0;i<nodes.length;i++)
-    {
+    for(var i=0;i<nodes.length;i++){
         nodename[i]=nodes[i].name;
     }
     //console.log("Name of Nodes: "+nodename);
     d3.select("#tab1").selectAll("p").data(valueKey).remove();
-
-
     d3.select("#tab1").selectAll("p")
-    //do something with this..
-
         .data(value)
         .enter()
         .append("p")
         .attr("id",function(d){
             return d.replace(/\W/g, "_"); // replace non-alphanumerics for selection purposes
-        }) // perhapse ensure this id is unique by adding '_' to the front?
-        .text(function(d){return d;})
-        .style('background-color',function(d) {
+            }) // perhapse ensure this id is unique by adding '_' to the front?
+        .text(function(d){
+            return d;
+            })
+        .style('background-color',function(d){
             if($.inArray(findNode(d).name,nodename)==-1) {return varColor;}
             // if(findNodeIndex(d) > 2) {return varColor;}
             // else if(findNodeIndex(d)==srchid){return clr; }
             else {return hexToRgba(selVarColor);}
-        }).style('border-style',function(d){
-        if($.inArray(findNodeIndex(d),srchid)!=-1 && flag==1){return borderstyle;}
-    })
+        })
+        .style('border-style',function(d){
+            if($.inArray(findNodeIndex(d),srchid)!=-1 && flag==1){return borderstyle;}
+        })
         .style('border-color',function(d){
             if($.inArray(findNodeIndex(d),srchid)!=-1 && flag==1){return bordercol;}
         })
@@ -360,17 +340,12 @@ function updatedata(value,flag)
             console.log(myText);
 
             d3.select(this)
-            // .html("HEY WASSUP")
-
                 .style('background-color',function(d) {
-                    console.log("hey what's zparms");
-                    console.log(zparams);
                     var myText = d3.select(this).text();
                     var myColor = d3.select(this).style('background-color');
                     var mySC = allNodes[findNodeIndex(myText)].strokeColor;
 
                     // if mytext is in selectedvarList, splice it. else push it.
-                    //  console.log("zparams GO THERE");
                     var found = $.inArray(myText, chosenVars);
                     if (found  > -1){
                         chosenVars.splice(found, 1);
@@ -420,34 +395,22 @@ function updatedata(value,flag)
                 });
 
         });
-
-    //
-    //console.log("d3 enter called");
-
     // fakeClick();
     //restart();
     $("#tab1").children().popover('hide');
    // populatePopover();
     //$("#tab1").children().popover('toggle');
     //addlistener(nodes);
-
     //callback=layout();
     //console.log("d3 exit called");
 }
 
 
-
-
-
 // TESTING FUNCTIONALITY FOR CLICKING AND ADDING VARIABLES
 function layout(v) {
-
-
-    //console.log("Layout Called");
     var myValues=[];
     nodes = [];
     links = [];
-
     if(v === "add" | v === "move") {
         d3.select("#tab1").selectAll("p").style('background-color',varColor);
         for(var j =0; j < zparams.zvars.length; j++ ) {
@@ -459,9 +422,7 @@ function layout(v) {
             d3.select(selectMe).style('background-color',function(){
                 return hexToRgba(nodes[j].strokeColor);
             });
-
         }
-
         for(var j=0; j < zparams.zedges.length; j++) {
             var mysrc = nodeIndex(zparams.zedges[j][0]);
             var mytgt = nodeIndex(zparams.zedges[j][1]);
@@ -492,13 +453,8 @@ function layout(v) {
     //panelPlots(); // after nodes is populated, add subset and setx panels
     //populatePopover(); // pipes in the summary stats shown on mouseovers
 
-
-
-
     //Rohit Bhattacharjee FORCE D3
     // init D3 force layout
-
-    //var
     force=forced3layout(nodes, links, width, height,tick);
     // init D3 force layout
     //function forced3layout(var nodes, var links, var width, var height)
@@ -509,7 +465,6 @@ function layout(v) {
     //.linkDistance(150)
     //.charge(-800)
     //.on('tick',tick);  // .start() is important to initialize the layout
-
 
     //Rohit Bhattacharjee SVG
     //function svgappend()
@@ -536,130 +491,10 @@ function layout(v) {
         .attr('d', 'M10,-5L0,0L10,5')
         .style('fill', '#000');
 
-    // line displayed when dragging new nodes
-    //   var drag_line = svg.append('svg:path')
-    // .attr('class', 'link dragline hidden')
-    //.attr('d', 'M0,0L0,0');
-
-    // handles to link and node element groups
-    // var path = svg.append('svg:g').selectAll('path');
-    //circle = svg.append('svg:g').selectAll('g');
-
-    // mouse event vars
-    //var selected_node = null,
-    //selected_link = null,
-    //mousedown_link = null,
-    //mousedown_node = null,
-    //mouseup_node = null;
-
-    //ROHIT BHATTACHARJEE reset mouse
-    //function resetMouseVars() {
-    //    mousedown_node = null;
-    //    mouseup_node = null;
-    //    mousedown_link = null;
-    //}
-
-    //ROHIT BHATTACHARJEE TICK
-    // update force layout (called automatically each iteration)
-    //function tick() {
-    //    // draw directed edges with proper padding from node centers
-    //    path.attr('d', function(d) {
-    //              var deltaX = d.target.x - d.source.x,
-    //              deltaY = d.target.y - d.source.y,
-    //              dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY),
-    //              normX = deltaX / dist,
-    //              normY = deltaY / dist,
-    //              sourcePadding = d.left ? allR+5 : allR,
-    //              targetPadding = d.right ? allR+5 : allR,
-    //              sourceX = d.source.x + (sourcePadding * normX),
-    //              sourceY = d.source.y + (sourcePadding * normY),
-    //              targetX = d.target.x - (targetPadding * normX),
-    //              targetY = d.target.y - (targetPadding * normY);
-    //              return 'M' + sourceX + ',' + sourceY + 'L' + targetX + ',' + targetY;
-    //              });
-    //
-    //    //  if(forcetoggle){
-    //    circle.attr('transform', function(d) {
-    //                return 'translate(' + d.x + ',' + d.y + ')';
-    //                });
-    //    //  };
-    //
-    //}
-    //
-
     //  add listeners to leftpanel.left.  every time a variable is clicked, nodes updates and background color changes.  mouseover shows summary stats or model description.
     //Rohit BHATTACHARJEE add listener
     addlistener(nodes);
-    //unction addlistener(){
-    //d3.select("#tab1").selectAll("p")
-    //.on("mouseover", function(d) {
-    //    // REMOVED THIS TOOLTIP CODE AND MADE A BOOTSTRAP POPOVER COMPONENT
-    //    $("body div.popover")
-    //    .addClass("variables");
-    //    $("body div.popover div.popover-content")
-    //    .addClass("form-horizontal");
-    //     })
-    //.on("mouseout", function() {
-    //    //Remove the tooltip
-    //    //d3.select("#tooltip").style("display", "none");
-    //    })
-    //.on("click", function varClick(){
-    //    if(allNodes[findNodeIndex(this.id)].grayout) {return null;}
-    //
-    //    d3.select(this)
-    //    .style('background-color',function(d) {
-    //           var myText = d3.select(this).text();
-    //           var myColor = d3.select(this).style('background-color');
-    //           var mySC = allNodes[findNodeIndex(myText)].strokeColor;
-    //
-    //           zparams.zvars = []; //empty the zvars array
-    //           if(d3.rgb(myColor).toString() === varColor.toString()) { // we are adding a var
-    //            if(nodes.length==0) {
-    //                nodes.push(findNode(myText));
-    //                nodes[0].reflexive=true;
-    //            }
-    //            else {nodes.push(findNode(myText));}
-    //            return hexToRgba(selVarColor);
-    //           }
-    //           else { // dropping a variable
-    //
-    //                nodes.splice(findNode(myText)["index"], 1);
-    //                spliceLinksForNode(findNode(myText));
-    //
-    //            if(mySC==dvColor) {
-    //                var dvIndex = zparams.zdv.indexOf(myText);
-    //                if (dvIndex > -1) { zparams.zdv.splice(dvIndex, 1); }
-    //                //zparams.zdv="";
-    //            }
-    //            else if(mySC==csColor) {
-    //                var csIndex = zparams.zcross.indexOf(myText);
-    //                if (csIndex > -1) { zparams.zcross.splice(csIndex, 1); }
-    //            }
-    //            else if(mySC==timeColor) {
-    //                var timeIndex = zparams.ztime.indexOf(myText);
-    //                if (timeIndex > -1) { zparams.ztime.splice(timeIndex, 1); }
-    //            }
-    //           else if(mySC==nomColor) {
-    //                var nomIndex = zparams.znom.indexOf(myText);
-    //                if (nomIndex > -1) { zparams.znom.splice(dvIndex, 1); }
-    //           }
-    //
-    //            nodeReset(allNodes[findNodeIndex(myText)]);
-    //            borderState();
-    //           legend();
-    //            return varColor;
-    //           }
-    //           });
-    //    panelPlots();
-    //    restart();
-    //    });
-    //}
-    //
 
-    //var drag_line = svg.append('svg:path')
-    //    .attr('class', 'link dragline hidden')
-    //    .attr('d', 'M0,0L0,0');
-    //
     d3.select("#models").selectAll("p") // models tab
         .on("mouseover", function(d) {
             // REMOVED THIS TOOLTIP CODE AND MADE A BOOTSTRAP POPOVER COMPONENT
@@ -689,53 +524,7 @@ function layout(v) {
 
 
 
-
-    // update graph (called when needed)
-    //restart();
-    //ROHIT BHATTACHARJEE RESTART FUNCTION
-    //end restart function
-
-    //ROHIT BHATTACHARJEE MOUSE FUNCTIONS
-    // function mousedown(d) {
-    //     // prevent I-bar on drag
-    //     d3.event.preventDefault();
-    //
-    //     // because :active only works in WebKit?
-    //     svg.classed('active', true);
-    //
-    //     if(d3.event.ctrlKey || mousedown_node || mousedown_link) {
-    //         return;
-    //     }
-    //
-    //     restart();
-    // }
-    //
-    // function mousemove(d) {
-    //     if(!mousedown_node) return;
-    //
-    //     // update drag line
-    //     drag_line.attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
-    // }
-    //
-    // function mouseup(d) {
-    //     if(mousedown_node) {
-    //         // hide drag line
-    //         drag_line
-    //         .classed('hidden', true)
-    //         .style('marker-end', '');
-    //     }
-    //     // because :active only works in WebKit?
-    //     svg.classed('active', false);
-    //
-    //     // clear mouse event vars
-    //     resetMouseVars();
-    // }
-
-
-
-
     // app starts here
-
     svg.attr('id', function(){
         return "whitespace".concat(myspace);
     })
@@ -758,31 +547,14 @@ function layout(v) {
 } 		// end layout
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-   
 //FUNCTION TO PROCESS JSON FILE
 function readPreprocess(url, p, v, callback) {
-    console.log(url);
-
     d3.json(url, function(error, json) {
             if (error) return console.warn(error);
             var jsondata = json;
-
             //console.log("inside readPreprocess function");
             //console.log(jsondata);
             //console.log(jsondata["variables"]);
-
             if(jsondata.dataset.private){
               private = jsondata["dataset"]["private"];
             }
@@ -791,23 +563,17 @@ function readPreprocess(url, p, v, callback) {
             for(var key in jsondata["variables"]) {
                 p[key] = jsondata["variables"][key];
             }
-             console.log("we're here")
-             console.log(p);
-
             if(typeof callback === "function") {
                 callback();
             }
             });
 }
 
-
-
 // FUNCTIONS TO ITERATE THROUGH NODES OF SELECTORS
 // returns id
 var findNodeIndex = function(nodeName) {
     for (var i in allNodes) {
         if(allNodes[i]["name"] === nodeName) {return allNodes[i]["id"];}
-    
     }
 }
 
@@ -826,21 +592,17 @@ var findNode = function(nodeName) {
 function about() {
     $('#about').show();
 }
-
 function closeabout() {
     $('#about').hide();
 }
-
 function opencite() {
     $('#cite').show();
 }
-
 function closecite(toggle) {
     if(toggle==false) {
         $('#cite').hide();
     }
 }
-
 function clickcite(toggle) {
     if(toggle==false) {
         $('#cite').show();
@@ -851,17 +613,14 @@ function clickcite(toggle) {
     }
 }
 
-
  // function to convert color codes
 function hexToRgba(hex) {
     var h=hex.replace('#', '');
-    
     var bigint = parseInt(h, 16);
     var r = (bigint >> 16) & 255;
     var g = (bigint >> 8) & 255;
     var b = bigint & 255;
     var a = '0.5';
-    
     return "rgba(" + r + "," + g + "," + b + "," + a + ")";
 }
 
@@ -877,11 +636,11 @@ function fakeClick() {
         });
     };
     $(myws).d3Click();
-
     d3.select(myws)
         .classed('active', false); // remove active class
 }
 
+// FUNCTIONS TO SPLICE & RESET NODES
 function spliceLinksForNode(node) {
     var toSplice = links.filter(function(l) {
         return (l.source === node || l.target === node);
