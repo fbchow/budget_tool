@@ -5,30 +5,18 @@ metadataurl="data/fearonLaitin.xml";
 var preprocess = {};
 
 //globals for d3 related attributes
-
 // space index
 var svg = d3.select("#main.left div.carousel-inner").attr('id', 'innercarousel')
 .append('div').attr('class', 'item active').attr('id', 'm0').append('svg').attr('id', 'whitespace');
-
 var logArray = [];
 var chosenVars = [];
-           
-//.attr('width', width)
-//.attr('height', height);
-// var tempWidth = d3.select("#main.left").style("width")
-// var width = tempWidth.substring(0,(tempWidth.length-2));
-
-/*var tempHeight = d3.select("#main.left").style("height")
-var height = tempHeight.substring(0,(tempHeight.length-2));*/
-
 var height = $(window).height() -120;  // Hard coding for header and footer and bottom margin.
 
-
-// this is the initial color scale that is used to establish the initial colors of the nodes.  allNodes.push() below establishes a field for the master node array allNodes called "nodeCol" and assigns a color from this scale to that field.  everything there after should refer to the nodeCol and not the color scale, this enables us to update colors and pass the variable type to R based on its coloring
+// this is the initial color scale that is used to establish the initial colors of the nodes.
+// allNodes.push() below establishes a field for the master node array allNodes called "nodeCol" and assigns a color from this scale to that field.
+// everything there after should refer to the nodeCol and not the color scale, this enables us to update colors and pass the variable type to R based on its coloring
 var colors = d3.scale.category20();
 var csColor = '#419641';
-
-
 var varColor = '#f0f8ff';   //d3.rgb("aliceblue");
 var selVarColor = '#fa8072';    //d3.rgb("salmon");
 var d3Color = '#1f77b4';  // d3's default blue
@@ -36,64 +24,14 @@ var dvColor = '#28a4c9';
 var timeColor = '#2d6ca2';
 var nomColor = '#ff6600';
 // var lefttab = "tab1"; //global for current tab in left panel
-
 var myspace = 0;
 var private=false;  //Do we want this to be true for PSI tool?
-
-
 var zparams = { zdata:[], zedges:[], ztime:[], znom:[], zcross:[], zmodel:"", zvars:[], zdv:[], zdataurl:"", zsubset:[], zsetx:[], zmodelcount:0, zplot:[], zsessionid:"", zdatacite:""};
-
 
 // Radius of circle
 var allR = 40;
 
-//Width and height for histgrams
-// var barwidth = 1.3*allR;
-// var barheight = 0.5*allR;
-// var barPadding = 0.35;
-// var barnumber =7;
-//
-
-// var arc0 = d3.svg.arc()
-// .innerRadius(allR + 5)
-// .outerRadius(allR + 20)
-// .startAngle(0)
-// .endAngle(3.2);
-//
-// var arc1 = d3.svg.arc()
-// .innerRadius(allR + 5)
-// .outerRadius(allR + 20)
-// .startAngle(0)
-// .endAngle(1);
-//
-// var arc2 = d3.svg.arc()
-// .innerRadius(allR + 5)
-// .outerRadius(allR + 20)
-// .startAngle(1.1)
-// .endAngle(2.2);
-//
-// var arc3 = d3.svg.arc()
-// .innerRadius(allR + 5)
-// .outerRadius(allR + 20)
-// .startAngle(2.3)
-// .endAngle(3.3);
-//
-// var arc4 = d3.svg.arc()
-// .innerRadius(allR + 5)
-// .outerRadius(allR + 20)
-// .startAngle(4.3)
-// .endAngle(5.3);
-
-
-
-// arry of objects containing allNode, zparams, transform vars
-// var spaces = [];
-// var trans = []; //var list for each space contain variables in original data plus trans in that space
-//
-
-
 //globals for reading from csv
-// From .csv
 // var dataset2 = [];
 var valueKey = [];
 var lablArray = [];
@@ -111,7 +49,6 @@ var nodes = [];
 var citetoggle = false;
 
 
-
 //APPROXIMATE END OF GLOBAL VARIABLE DECLARATIONS
 
 
@@ -126,31 +63,20 @@ $('#collapseLog').on('shown.bs.collapse', function () {
                      });
                      //$("#logicon").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
                      });
-//
 // $('#collapseLog').on('hidden.bs.collapse', function () {
 //                      d3.select("#collapseLog div.panel-body").selectAll("p")
 //                      .remove();
 //                      //$("#logicon").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
 //                      });
-
-
 // text for the about box
 // note that .textContent is the new way to write text to a div
 // $('#about div.panel-body').text('BUDGET TOOL PROTOTYPE 2.0 FANNY CHOW AND NABIB AHMED');
 
-
-
-
-
-
-
-
+// function to read in XML file, populate left side-panel, add/remove variables to chosenVars list, prompt forms on right
 readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
-				// console.log("top of readPreprocess function");
 				d3.xml(metadataurl, "application/xml", function(xml){
                       var vars = xml.documentElement.getElementsByTagName("var");
                       var temp = xml.documentElement.getElementsByTagName("fileName");
-
 
                       zparams.zdata = temp[0].childNodes[0].nodeValue;
                       
@@ -161,51 +87,45 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                         s=s.replace(/\%/g, "-");
                         return s;
                       }
-                      
+
+                      // obtain bib citation metadata
                       var cite = xml.documentElement.getElementsByTagName("biblCit");
                       zparams.zdatacite=cite[0].childNodes[0].nodeValue;
                       zparams.zdatacite=cleanstring(zparams.zdatacite);
-                      
-                      
-                      // dataset name trimmed to 12 chars
-                      var dataname = zparams.zdata.replace( /\.(.*)/, "") ;  // regular expression to drop any file extension
-                      // Put dataset name, from meta-data, into top panel
+
+                      // read in dataset name & trim to max of 12 characters using regular expression to drop any file extensions
+                      var dataname = zparams.zdata.replace( /\.(.*)/, "") ;
+
+                    // Put dataset name, from meta-data, into top panel
                       d3.select("#dataName")
                       .html(dataname);
-                      
-                      $('#cite div.panel-body').text(zparams.zdatacite);
+                    $('#cite div.panel-body').text(zparams.zdatacite);
 
                       // Put dataset name, from meta-data, into page title
                       d3.select("title").html("TwoRavens " +dataname)
 
-
                       // temporary values for hold that correspond to histogram bins
                       hold = [.6, .2, .9, .8, .1, .3, .4];
-                      var myvalues = [0, 0, 0, 0, 0];
-                      // console.log("GOT HERE A");
-                      // console.log(vars);
-                      for (i=0;i<vars.length;i++) {
-                      
-                      valueKey[i] = vars[i].attributes.name.nodeValue;
-                      
-                      if(vars[i].getElementsByTagName("labl").length === 0) {lablArray[i]="no label";}
-                      else {lablArray[i] = vars[i].getElementsByTagName("labl")[0].childNodes[0].nodeValue;}
+                      // var myvalues = [0, 0, 0, 0, 0];
 
-                      
-                      // this creates an object to be pushed to allNodes. this contains all the preprocessed data we have for the variable, as well as UI data pertinent to that variable, such as setx values (if the user has selected them) and pebble coordinates
-                      var obj1 = {id:i, reflexive: false, "name": valueKey[i], "labl": lablArray[i], data: [5,15,20,0,5,15,20], count: hold, "nodeCol":colors(i), "baseCol":colors(i), "strokeColor":selVarColor, "strokeWidth":"1", "subsetplot":false, "subsetrange":["", ""],"setxplot":false, "setxvals":["", ""], "grayout":false};
-                      
-                      jQuery.extend(true, obj1, preprocess[valueKey[i]]);
-                      
-                      // console.log(vars[i].childNodes[4].attributes.type.ownerElement.firstChild.data);
-                      allNodes.push(obj1);
+                      for (i=0;i<vars.length;i++) {
+                          valueKey[i] = vars[i].attributes.name.nodeValue;
+
+                          if(vars[i].getElementsByTagName("labl").length === 0) {lablArray[i]="no label";}
+                          else {lablArray[i] = vars[i].getElementsByTagName("labl")[0].childNodes[0].nodeValue;}
+
+                          // this creates an object to be pushed to allNodes. this contains all the preprocessed data we have for the variable, as well as UI data pertinent to that variable, such as setx values (if the user has selected them) and pebble coordinates
+                          var obj1 = {id:i, reflexive: false, "name": valueKey[i], "labl": lablArray[i], data: [5,15,20,0,5,15,20], count: hold, "nodeCol":colors(i), "baseCol":colors(i), "strokeColor":selVarColor, "strokeWidth":"1", "subsetplot":false, "subsetrange":["", ""],"setxplot":false, "setxvals":["", ""], "grayout":false};
+
+                          jQuery.extend(true, obj1, preprocess[valueKey[i]]);
+
+                          // console.log(vars[i].childNodes[4].attributes.type.ownerElement.firstChild.data);
+                          allNodes.push(obj1);
                       }
 
                       //TESTME see if we have a list of variables print out
                       console.log("hey do we have valuekey here");
                       console.log(valueKey);
-                    // console.log(typvalueKey);
-
 
                     // populate left side bar with variable names
                     d3.select("#tab1").selectAll("p")
@@ -225,31 +145,21 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                         .attr("onmouseover", "$(this).popover('toggle');")
                         .attr("onmouseout", "$(this).popover('toggle');")
                         .attr("data-original-title", "Information about this Variable")
-                        // .on("click", function() {
-                        //     //Do something mundane and annoying on click
-                        //     alert("Hey, don't click that!");
-                        //
                         .on("click", function varClick(){ // we've added a new variable, so we need to add the listener
-
                             var myText = d3.select(this).text();
 
-                            //populate form testme
+                            // add form after selecting variable
                             variable_selected(myText);
-
                             console.log(myText);
 
+                            //add and remove variables selected to chosenVars list
                             d3.select(this)
-                               // .html("HEY WASSUP")
-
                                 .style('background-color',function(d) {
-                                    console.log("hey what's zparms");
-                                    console.log(zparams);
                                     var myText = d3.select(this).text();
                                     var myColor = d3.select(this).style('background-color');
                                     var mySC = allNodes[findNodeIndex(myText)].strokeColor;
 
-                                    // if mytext is in selectedvarList, splice it. else push it.
-                                  //  console.log("zparams GO THERE");
+                                    // if the variable selected (mytext) is in selectedvarList, add it to the chosenVars list, else remove it
                                     var found = $.inArray(myText, chosenVars);
                                     if (found  > -1){
                                         chosenVars.splice(found, 1);
@@ -258,9 +168,10 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                                         chosenVars.push(myText);
                                     }
 
+                                    //TESTME print the array of variables selected and deselected
                                     console.log(chosenVars);
 
-
+                                    // change color of variables selected and deselected
                                     if(d3.rgb(myColor).toString() === varColor.toString()) { // we are adding a var
                                         if(nodes.length==0) {
                                             nodes.push(findNode(myText));
@@ -270,10 +181,8 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                                         return hexToRgba(selVarColor);
                                     }
                                     else { // dropping a variable
-
                                         nodes.splice(findNode(myText)["index"], 1);
                                         spliceLinksForNode(findNode(myText));
-
                                         if(mySC==dvColor) {
                                             var dvIndex = zparams.zdv.indexOf(myText);
                                             if (dvIndex > -1) { zparams.zdv.splice(dvIndex, 1); }
@@ -290,18 +199,13 @@ readPreprocess(url=pURL, p=preprocess, v=null, callback=function(){
                                             var nomIndex = zparams.znom.indexOf(myText);
                                             if (nomIndex > -1) { zparams.znom.splice(dvIndex, 1); }
                                         }
-
                                         nodeReset(allNodes[findNodeIndex(myText)]);
                                       //  borderState();
                                         return varColor;
                                     }
-
                                 });
 
                         });
-
-
-
                  });
 });
 
