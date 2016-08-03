@@ -54,7 +54,8 @@ div.panel.show {
     padding-left: 500px;
 }
 
-/*
+
+/*styling global variables table*/
 #epsilon_table table, #epsilon_table th, #epsilon_table td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -62,11 +63,11 @@ div.panel.show {
 #epsilon_table th, #epsilon_table td {
     padding: 5px;
     text-align: center;
-}*/
+}
 
 
 
-/* form styling*/
+/*!* form styling*!*/
 
 /*Sidebar and Header*/
 /*http://www.w3schools.com/html/tryit.asp?filename=tryhtml_layout_flexbox*/
@@ -101,6 +102,55 @@ footer {background: #aaa;color:white; text-align: center;}
     .epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}
     footer {-webkit-order:4;order:4;}
 }
+
+
+
+
+/*!*Sidebar and Header*!*/
+/*!*http://www.w3schools.com/html/tryit.asp?filename=tryhtml_layout_flexbox*!*/
+/*.flex-container {*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /*-webkit-flex-flow: row wrap;*/
+    /*flex-flow: row wrap;*/
+    /*text-align: center;*/
+/*}*/
+
+/*.flex-container > * {*/
+    /*padding: 15px;*/
+    /*-webkit-flex: 1 100%;*/
+    /*flex: 1 100%;*/
+/*}*/
+
+/*.main {*/
+    /*text-align: left;*/
+/*}*/
+
+/*header {*/
+    /*background: black;*/
+    /*color:white;*/
+/*}*/
+
+/*footer {*/
+    /*background: #aaa;*/
+    /*color:white;*/
+    /*text-align: center;*/
+/*}*/
+
+/*.variable_sidebar {*/
+    /*background:#eee;*/
+/*}*/
+
+/*.epsilon_sidebar {*/
+    /*background:#eef;*/
+/*}*/
+
+/*@media all and (min-width: 768px) {*/
+    /*.variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
+    /*.main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}*/
+    /*.epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}*/
+    /*footer {-webkit-order:4;order:4;}*/
+/*}*/
 
 
 
@@ -562,3 +612,8 @@ td {
     vertical-align: top;
     background: #eeeeff;
 }
+
+/*add space below top nav bar*/
+/*fixed navbar will overlay your other content, unless you add padding to the top of the <body>*/
+/*https://getbootstrap.com/components/#navbar*/
+body { padding-top: 70px; }
