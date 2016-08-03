@@ -54,8 +54,19 @@ div.panel.show {
     padding-left: 500px;
 }
 
+/*
+#epsilon_table table, #epsilon_table th, #epsilon_table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#epsilon_table th, #epsilon_table td {
+    padding: 5px;
+    text-align: center;
+}*/
 
-/*nabib styling*/
+
+
+/* form styling*/
 
 /*Sidebar and Header*/
 /*http://www.w3schools.com/html/tryit.asp?filename=tryhtml_layout_flexbox*/
@@ -78,30 +89,18 @@ div.panel.show {
 }
 
 header {background: black;color:white;}
-footer {background: #aaa;color:white;}
+footer {background: #aaa;color:white; text-align: center;}
 /*.variable_sidebar {background:#eee;}*/
 .leftpanel {background:#eee;}
 .epsilon_sidebar {background:#eef;}
 
 @media all and (min-width: 768px) {
-    .variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}
+    /*.variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
+    .leftpanel {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}
     .main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}
     .epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}
     footer {-webkit-order:4;order:4;}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -252,13 +251,17 @@ text.id {
 /* #main.svg-marg-left svg {margin-left:0px;}
 #main.svg-marg-right svg {margin-right:0px;} */
 
-#option.navbar {
-    padding:.5em;
-    margin-bottom:220;
-}
-#option {
-    position:relative;
-}
+/*#option.navbar {*/
+    /*padding:.5em;*/
+    /*margin-bottom:220;*/
+    /*!*position: relative;*!*/
+    /*!*position: fixed;*!*/
+/*}*/
+
+/*#option {*/
+    /*position:relative;*/
+    /*!*position: absolute;*!*/
+/*}*/
 
 div.popover.variables {
     max-width:none;
@@ -308,14 +311,13 @@ div.sidepanel div.panelbar {
 #leftpanel div#toggleLpanelicon.panelbar {
   left:calc(100% - 16px);
 }
-#rightpanel div#toggleRpanelicon.panelbar {
-  right:calc(100% - 16px);
-}
+
 div.sidepanel div.panelbar span {
   display: block;
   width:16px;
-  height:576px;
-  text-align: center;
+  /*height:576px;*/
+    height: 700px;
+    text-align: center;
   padding-top:258px;
   font-size:.75em;
   color:#ADADAD;

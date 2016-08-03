@@ -1,10 +1,27 @@
 
+
+function getGlobalParameters(){
+    var epsval=document.getElementById("epsilonbox").value;
+    var delval=document.getElementById("deltabox").value;
+    var betaval=document.getElementById("betabox").value;
+    var nval = 1223992 //Need to get this from metadata too
+    var globals={eps:epsval, del:delval, beta:betaval, n:nval};
+
+    console.log(globals);
+
+    return globals;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // global variables for preprocessing json file
 pURL = "data/fearonLaitinPreprocess4.json";
-metadataurl="data/fearonLaitin.xml"; 
+metadataurl="data/fearonLaitin.xml";
 var preprocess = {};
 
-//globals for d3 related attributes
+
+// GLOBALS FOR D3 RELATED ATTRIBUTES
 // space index
 var svg = d3.select("#main.left div.carousel-inner").attr('id', 'innercarousel')
 .append('div').attr('class', 'item active').attr('id', 'm0').append('svg').attr('id', 'whitespace');

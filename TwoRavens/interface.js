@@ -531,6 +531,22 @@ $.each(column_index, function(i, el) {
     index_column[el]=i;
 });
 
+
+
+// copied from wireframe.js
+function getGlobalParameters(){
+    var epsval=document.getElementById("epsilonbox").value;
+    var delval=document.getElementById("deltabox").value;
+    var betaval=document.getElementById("betabox").value;
+    var nval = 1223992 //Need to get this from metadata too
+    var globals={eps:epsval, del:delval, beta:betaval, n:nval};
+
+    console.log(globals);
+
+    return globals;
+}
+
+
 // Get length of js dictionary length: http://jsfiddle.net/simevidas/nN84h/
 // Generates a HTML datapage with all the info collected 
 function report () {
@@ -579,6 +595,11 @@ function report () {
 
     var report_info = window.open("");
     report_info.document.write(info + "</table>");
+
+    //TESTME
+    var globalVars;
+    globalVars = console.log(globals);
+    console.log(globals);
 };
 
 

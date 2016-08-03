@@ -35,7 +35,7 @@
   <body>
 
 
-<nav id="option" class="navbar navbar-default" role="navigation">
+<nav id="option" class="navbar navbar-default navbar-fixed-top" role="navigation">
               <!-- </span> -->
               <div class="navbar-header" id="navbarheader">
                   <img src="images/dpi2.png" alt="TwoRavens" width="350" style="margin-left:1em;margin-top:-0.5em" >
@@ -80,18 +80,38 @@
     <!--<div class="text-right">-->
     <div class="input-group" id="globalsForm">
         <div class="col-xs-2">
-            <input type="text" class="form-control input-xs" id="inputEpsilon" placeholder="epsilon ⍷">
+            <input type="text" class="form-control input-xs" id="epsilonbox" placeholder="epsilon ⍷">
         </div>
         <div class="col-xs-2">
-            <input type="text" class="form-control input-xs" id="inputDelta" placeholder="delta δ">
+            <input type="text" class="form-control input-xs" id="deltabox" placeholder="delta δ">
         </div>
         <div class="col-xs-2">
-            <input type="text" class="form-control input-xs" id="inputBeta" placeholder="beta β">
+            <input type="text" class="form-control input-xs" id="betabox" placeholder="beta β">
         </div>
-        <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+        <button type="submit" class="btn btn-primary btn-xs" onclick="return foo();">submit</button>
     </div>
     </form>
     </div>
+
+    <script>
+        function foo()
+        {
+
+            var epsval=document.getElementById("epsilonbox").value;
+            alert(epsval);
+            var delval=document.getElementById("deltabox").value;
+            alert(delval);
+            var betaval=document.getElementById("betabox").value;
+            alert(betaval);
+            var nval = 1223992; //Need to get this from metadata too
+            alert(nval);
+            var globals={eps:epsval, del:delval, beta:betaval, n:nval};
+//            alert("Submit button clicked!");
+            alert(globals);
+            return true;
+        }
+    </script>
+
 
     <!--SAD ITERATIONS OF GLOBAL VARIABLES FORM ENTRY-->
               <!--<div class="text-right">-->
@@ -149,7 +169,8 @@
             <div class="row-fluid">
                 <div id="leftpanelcontent">
                     <input type="text" id="searchvar" placeholder="Search Variables and Labels" class="form-control" style="width:100%; margin-bottom:5px;"/>
-                    <div id="leftContentArea" style="overflow: scroll; height:488px;">
+                    <!--<div id="leftContentArea" style="overflow: scroll; height:488px;">-->
+                        <div id="leftContentArea" style="overflow: scroll; height: 600px;">
                         <div id="tab1" style="display:block;padding:6px 12px;text-align:center">
                         
 
@@ -258,33 +279,6 @@
 </script>
 
 
-<!--nabib's divs-->
-<!--<div id="bubble_form" class="col-lg-12" style="width: 100%; height:100%; overflow-y: scroll; position: relative; z-index: 0;">-->
-<!--</div>-->
-
-<!--&lt;!&ndash; Button for new variables &ndash;&gt;-->
-<!--<div id="add_new_bubble">-->
-    <!--<button type="button" id="add_new_bubble" onclick="add_new_bubble()">+Add New Variable</button>-->
-<!--</div>-->
-
-<!--<br>-->
-
-<!--&lt;!&ndash; Submit Button &ndash;&gt;-->
-<!--<div id="submit">-->
-    <!--<button type="button" id="submit" onclick="submit()">SUBMIT</button>-->
-<!--</div>-->
-
-<!--&lt;!&ndash; The Modal &ndash;&gt;-->
-<!--<div id="myModal" class="modal">-->
-    <!--&lt;!&ndash; Modal content &ndash;&gt;-->
-    <!--<div class="modal-content">-->
-        <!--<span class="close">X</span>-->
-
-        <!--<div id="modal-content"></div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--</div>-->
 
 <body onload="variable_bubble()">
 
@@ -296,39 +290,9 @@
 
 <body onload="variable_bubble(); generate_epsilon_table(); populate_variable_selection_sidebar();">
 
-<!--<div class="flex-container">-->
-    <!--<header>-->
-        <!--<h3>Budget Tool</h3>-->
-        <!--<table align="center">-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--Epsilon (e)-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--Delta (d)-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--Beta (B)-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<input style="color: black;" type="text" placeholder="Epsilon">-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input style="color: black;" type="text" placeholder="Delta">-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input style="color: black;" type="text" placeholder="Beta">-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</header>-->
 
     <!-- Variable Selection -->
     <nav class="variable_sidebar">
-        <!-- Searchbar -->
-        <!--<input id='live-search-box' type="text" class="live-search-box" placeholder="Search Here">-->
 
         <!-- Variable List -->
         <ul id="variable_sidebar" class="live-search-list"></ul>
