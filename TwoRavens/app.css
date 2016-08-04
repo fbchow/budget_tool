@@ -92,12 +92,12 @@ div.panel.show {
 header {background: black;color:white;}
 footer {background: #aaa;color:white; text-align: center;}
 /*.variable_sidebar {background:#eee;}*/
-.leftpanel {background:#eee;}
+.leftpanelcontent {background:#eee;}
 .epsilon_sidebar {background:#eef;}
 
 @media all and (min-width: 768px) {
     /*.variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
-    .leftpanel {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}
+    .leftpanelcontent {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}
     .main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}
     .epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}
     footer {-webkit-order:4;order:4;}
@@ -336,8 +336,10 @@ div.popover.variables div.popover-content.form-horizontal .form-group {
 
 #leftpanel #leftContentArea div {display:none;}
 #leftpanel #leftContentArea div.active {display:block;}
-#leftpanel.expandpanel {width:40%;}
-#leftpanel.closepanel {width:1px;}
+/*#leftpanel.expandpanel {width:40%;}*/
+#leftpanel.expandpanel {width:60%;}
+/*#leftpanel.closepanel {width:1px;}*/
+#leftpanel.closepanel {width:50px;}
 #leftpanel.closepanel #leftpaneltitle, #leftpanel.closepanel div.btn-toolbar, #leftpanel.closepanel div.row-fluid.closepanel {display:none;}
 
 #rightpanel {
