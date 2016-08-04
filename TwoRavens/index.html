@@ -84,31 +84,31 @@
 <nav id="option" class="navbar navbar-default navbar-fixed-top" role="navigation">
               <div class="container-fluid">
               <div class="navbar-header" id="navbarheader">
-                  <img src="images/dpi2.png" alt="Budget Tool" width="350" style="margin-left:1em;margin-top:-0.5em" >
+                  <img src="images/dpi2.png" class="img-responsive" alt="Budget Tool" width="350" style="margin-left:1em;margin-top:-0.5em" >
 
                   <!-- name of dataset -->
                   <h4 id="dataName" style="display:inline;" onclick="citetoggle=clickcite(citetoggle);" onmouseover="opencite();" onmouseout="closecite(citetoggle);">Dataset Name</h4>
 
-                  <div class='btn-toolbar pull-riXght'>
-                      <form class="form-inline">
-                          <div class='btn-group'>
-                              <div class="input-group" id="globalsForm">
-                                  <div class="col-xs-2">
-                                      <input type="text" class="form-control input-xs" id="epsilonbox" placeholder="epsilon ⍷">
-                                  </div>
-                                  <div class="col-xs-2">
-                                      <input type="text" class="form-control input-xs" id="deltabox" placeholder="delta δ">
-                                  </div>
-                                  <div class="col-xs-2">
-                                      <input type="text" class="form-control input-xs" id="betabox" placeholder="beta β">
-                                  </div>
-                                  <button type="submit" class="btn btn-primary btn-xs" onclick="return foo();">submit</button>
-                              </div>
-                      </form>
-                      <ul class="nav navbar-nav navbar-right">
-                          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Enter</a></li>
-                      </ul>
-                  </div>
+                  <!--<div class='btn-toolbar pull-right'>-->
+                      <!--<form class="form-inline">-->
+                          <!--<div class='btn-group'>-->
+                              <!--<div class="input-group" id="globalsForm">-->
+                                  <!--<div class="col-xs-2">-->
+                                      <!--<input type="text" class="form-control input-xs" id="epsilonbox" placeholder="epsilon ⍷">-->
+                                  <!--</div>-->
+                                  <!--<div class="col-xs-2">-->
+                                      <!--<input type="text" class="form-control input-xs" id="deltabox" placeholder="delta δ">-->
+                                  <!--</div>-->
+                                  <!--<div class="col-xs-2">-->
+                                      <!--<input type="text" class="form-control input-xs" id="betabox" placeholder="beta β">-->
+                                  <!--</div>-->
+                                  <!--<button type="submit" class="btn btn-primary btn-xs" onclick="return foo();">submit</button>-->
+                              <!--</div>-->
+                      <!--</form>-->
+                      <!--<ul class="nav navbar-nav navbar-right">-->
+                          <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Enter</a></li>-->
+                      <!--</ul>-->
+                  <!--</div>-->
                       
                   <div id="about" class="panel panel-default" style="position:absolute; left:140px; width:380px; display:none; z-index:50;">
                     <div class="panel-body"> </div>
@@ -150,6 +150,41 @@
                 <p><a href="#">Link</a></p>
             </div>
             <div class="col-sm-8 text-left">
+                <!--test add in center forms-->
+                <body onload="variable_bubble()">
+
+                <div id="bubble_form" style="">
+                    <b></b>
+
+                </div>
+
+
+                <body onload="variable_bubble(); generate_epsilon_table(); populate_variable_selection_sidebar();">
+
+
+                <!--&lt;!&ndash; Variable Selection &ndash;&gt;-->
+                <!--<nav class="variable_sidebar">-->
+
+                <!--&lt;!&ndash; Variable List &ndash;&gt;-->
+                <!--<ul id="variable_sidebar" class="live-search-list"></ul>-->
+                <!--</nav>-->
+
+                <article class="main">
+                    <!-- Page Content: Bubbles -->
+                    <div id="bubble_form" style=""></div>
+
+                </article>
+
+
+
+
+
+
+
+
+
+
+
                 <h1>Welcome</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <hr>
@@ -255,29 +290,29 @@
 
 
 
-<body onload="variable_bubble()">
+<!--<body onload="variable_bubble()">-->
 
-<div id="bubble_form" style="">
-    <b></b>
+<!--<div id="bubble_form" style="">-->
+    <!--<b></b>-->
 
-</div>
-
-
-<body onload="variable_bubble(); generate_epsilon_table(); populate_variable_selection_sidebar();">
+<!--</div>-->
 
 
-    <!--&lt;!&ndash; Variable Selection &ndash;&gt;-->
-    <!--<nav class="variable_sidebar">-->
+<!--<body onload="variable_bubble(); generate_epsilon_table(); populate_variable_selection_sidebar();">-->
 
-        <!--&lt;!&ndash; Variable List &ndash;&gt;-->
-        <!--<ul id="variable_sidebar" class="live-search-list"></ul>-->
-    <!--</nav>-->
 
-    <article class="main">
-        <!-- Page Content: Bubbles -->
-        <div id="bubble_form" style=""></div>
+    <!--&lt;!&ndash;&lt;!&ndash; Variable Selection &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<nav class="variable_sidebar">&ndash;&gt;-->
 
-    </article>
+        <!--&lt;!&ndash;&lt;!&ndash; Variable List &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<ul id="variable_sidebar" class="live-search-list"></ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;</nav>&ndash;&gt;-->
+
+    <!--<article class="main">-->
+        <!--&lt;!&ndash; Page Content: Bubbles &ndash;&gt;-->
+        <!--<div id="bubble_form" style=""></div>-->
+
+    <!--</article>-->
 
     <!-- Epsilon Sidebar Table -->
     <nav id="epsilon_sidebar" class="epsilon_sidebar"></nav>
