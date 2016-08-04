@@ -1,5 +1,5 @@
 
-
+//copied from wireframe.js
 function getGlobalParameters(){
     var epsval=document.getElementById("epsilonbox").value;
     var delval=document.getElementById("deltabox").value;
@@ -46,7 +46,7 @@ var private=false;  //Do we want this to be true for PSI tool?
 var zparams = { zdata:[], zedges:[], ztime:[], znom:[], zcross:[], zmodel:"", zvars:[], zdv:[], zdataurl:"", zsubset:[], zsetx:[], zmodelcount:0, zplot:[], zsessionid:"", zdatacite:""};
 
 // Radius of circle
-var allR = 40;
+// var allR = 40;
 
 //globals for reading from csv
 // var dataset2 = [];
@@ -569,9 +569,6 @@ function readPreprocess(url, p, v, callback) {
     d3.json(url, function(error, json) {
             if (error) return console.warn(error);
             var jsondata = json;
-            //console.log("inside readPreprocess function");
-            //console.log(jsondata);
-            //console.log(jsondata["variables"]);
             if(jsondata.dataset.private){
               private = jsondata["dataset"]["private"];
             }

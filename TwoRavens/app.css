@@ -507,61 +507,61 @@ td {
 }
 
 /* Carousel */
-.carousel-indicators {
-    top:20px;
-    bottom:auto;
-}
-.carousel-indicators li {
-    border: 1px solid #818181;
-}
-.carousel-indicators li.active {
-    background-color: #818181;
-}
-.carousel-indicators li#create, .carousel-indicators li#delete {
-    border: 0;
-    border-radius: 0;
-    background-color: inherit;
-    text-indent:0;
-    font-size:12px;
-    width:12px;
-    height:12px;
-    line-height:12px;
-}
-.carousel-indicators li#create .glyphicon {
-    top:0;
-}
+/*.carousel-indicators {*/
+    /*top:20px;*/
+    /*bottom:auto;*/
+/*}*/
+/*.carousel-indicators li {*/
+    /*border: 1px solid #818181;*/
+/*}*/
+/*.carousel-indicators li.active {*/
+    /*background-color: #818181;*/
+/*}*/
+/*.carousel-indicators li#create, .carousel-indicators li#delete {*/
+    /*border: 0;*/
+    /*border-radius: 0;*/
+    /*background-color: inherit;*/
+    /*text-indent:0;*/
+    /*font-size:12px;*/
+    /*width:12px;*/
+    /*height:12px;*/
+    /*line-height:12px;*/
+/*}*/
+/*.carousel-indicators li#create .glyphicon {*/
+    /*top:0;*/
+/*}*/
 
-.carousel-linked-nav,
-.item img {
-  display: block; 
-  margin: 0 auto;
-}
+/*.carousel-linked-nav,*/
+/*.item img {*/
+  /*display: block; */
+  /*margin: 0 auto;*/
+/*}*/
 
-.carousel-linked-nav {
-  width:200px;
-  margin: 10px auto;   
-}
-.carousel-linked-nav li {position:relative;}
+/*.carousel-linked-nav {*/
+  /*width:200px;*/
+  /*margin: 10px auto;   */
+/*}*/
+/*.carousel-linked-nav li {position:relative;}*/
 
-#carouselLeft {position:absolute;top:50%;left:calc(16px + 20%);z-index:30;font-size:2em;}
-#carouselRight {position:absolute;top:50%;right:calc(16px + 20%);z-index:30;font-size:2em;}
+/*#carouselLeft {position:absolute;top:50%;left:calc(16px + 20%);z-index:30;font-size:2em;}*/
+/*#carouselRight {position:absolute;top:50%;right:calc(16px + 20%);z-index:30;font-size:2em;}*/
 
-.lowerError {
-    fill: #4682b4;
-}
+/*.lowerError {*/
+    /*fill: #4682b4;*/
+/*}*/
 
-.upperError {
-  fill: silver;
-  fill-opacity: 0.65;
-}
+/*.upperError {*/
+  /*fill: silver;*/
+  /*fill-opacity: 0.65;*/
+/*}*/
 
-.line {
-  fill: #4682b4;
-}
+/*.line {*/
+  /*fill: #4682b4;*/
+/*}*/
 
-.nofill {
-  fill: none;
-}
+/*.nofill {*/
+  /*fill: none;*/
+/*}*/
 
 
 
