@@ -326,7 +326,7 @@ div.popover.variables div.popover-content.form-horizontal .form-group {
 
 #leftpanel {
   /*  border:1px solid #ADADAD;*/
-    width: 15%;
+    width: 100%;
     height:calc(100% - 17px);
     position:absolute;top:93px;left:0px;
     background:#F9F9F9;
@@ -336,8 +336,10 @@ div.popover.variables div.popover-content.form-horizontal .form-group {
 
 #leftpanel #leftContentArea div {display:none;}
 #leftpanel #leftContentArea div.active {display:block;}
-#leftpanel.expandpanel {width:40%;}
-#leftpanel.closepanel {width:1px;}
+/*#leftpanel.expandpanel {width:40%;}*/
+#leftpanel.expandpanel {width:60%;}
+/*#leftpanel.closepanel {width:1px;}*/
+#leftpanel.closepanel {width:50px;}
 #leftpanel.closepanel #leftpaneltitle, #leftpanel.closepanel div.btn-toolbar, #leftpanel.closepanel div.row-fluid.closepanel {display:none;}
 
 #rightpanel {
