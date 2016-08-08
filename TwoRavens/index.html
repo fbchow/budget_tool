@@ -8,7 +8,7 @@
         <!--CSS-->
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
-        <!--<link rel="stylesheet" href="app.css">-->
+        <link rel="stylesheet" href="app.css">
         <link rel="stylesheet" href="Ladda/dist/ladda-themeless.min.css">
         <!--<link href="libraries/css/bootstrap.min.css" rel="stylesheet">-->
         <!--<link href="libraries/css/simple-sidebar.css" rel="stylesheet">-->
@@ -84,31 +84,32 @@
 <nav id="option" class="navbar navbar-default navbar-fixed-top" role="navigation">
               <div class="container-fluid">
               <div class="navbar-header" id="navbarheader">
+                  header
                   <img src="images/dpi2.png" class="img-responsive" alt="Budget Tool" width="350" style="margin-left:1em;margin-top:-0.5em" >
-
+                  header
                   <!-- name of dataset -->
                   <h4 id="dataName" style="display:inline;" onclick="citetoggle=clickcite(citetoggle);" onmouseover="opencite();" onmouseout="closecite(citetoggle);">Dataset Name</h4>
 
-                  <!--<div class='btn-toolbar pull-right'>-->
-                      <!--<form class="form-inline">-->
-                          <!--<div class='btn-group'>-->
-                              <!--<div class="input-group" id="globalsForm">-->
-                                  <!--<div class="col-xs-2">-->
-                                      <!--<input type="text" class="form-control input-xs" id="epsilonbox" placeholder="epsilon ⍷">-->
-                                  <!--</div>-->
-                                  <!--<div class="col-xs-2">-->
-                                      <!--<input type="text" class="form-control input-xs" id="deltabox" placeholder="delta δ">-->
-                                  <!--</div>-->
-                                  <!--<div class="col-xs-2">-->
-                                      <!--<input type="text" class="form-control input-xs" id="betabox" placeholder="beta β">-->
-                                  <!--</div>-->
-                                  <!--<button type="submit" class="btn btn-primary btn-xs" onclick="return foo();">submit</button>-->
-                              <!--</div>-->
-                      <!--</form>-->
-                      <!--<ul class="nav navbar-nav navbar-right">-->
-                          <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Enter</a></li>-->
-                      <!--</ul>-->
-                  <!--</div>-->
+                  <div class='btn-toolbar pull-right'>
+                      <form class="form-inline">
+                          <div class='btn-group'>
+                              <div class="input-group" id="globalsForm">
+                                  <div class="col-xs-2">
+                                      <input type="text" class="form-control input-xs" id="epsilonbox" placeholder="epsilon ⍷">
+                                  </div>
+                                  <div class="col-xs-2">
+                                      <input type="text" class="form-control input-xs" id="deltabox" placeholder="delta δ">
+                                  </div>
+                                  <div class="col-xs-2">
+                                      <input type="text" class="form-control input-xs" id="betabox" placeholder="beta β">
+                                  </div>
+                                  <button type="submit" class="btn btn-primary btn-xs" onclick="return foo();">submit</button>
+                              </div>
+                      </form>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Enter</a></li>
+                      </ul>
+                  </div>
                       
                   <div id="about" class="panel panel-default" style="position:absolute; left:140px; width:380px; display:none; z-index:50;">
                     <div class="panel-body"> </div>
@@ -132,9 +133,9 @@
 
                     <div class="row-fluid">
                         <div id="leftpanelcontent">
-                            <input type="text" id="searchvar" placeholder="Search Variables and Labels" class="form-control" style="width:80px; margin-bottom:5px;"/>
+                            <input type="text" id="searchvar" placeholder="Search Variables and Labels" class="form-control" style="width:100%; margin-bottom:5px;"/>
                             <!--<div id="leftContentArea" style="overflow: scroll; height:488px;">-->
-                            <div id="leftContentArea" style="overflow: scroll; width: 80px; height: 600px;">
+                            <div id="leftContentArea" style="overflow: scroll; width: 100%; height: 600px;">
                                 <div id="tab1" style="display:block;padding:6px 12px;text-align:center">
                                 </div>
                             </div>
@@ -146,15 +147,16 @@
                     </div>
 
                 </div>
-                <p><a href="#">Link</a></p>
+                <p><a href="#">Left column</a></p>
             </div>
             <div class="col-sm-8 text-left">
                 <!--test add in center forms-->
+                middle column
                 <body onload="variable_bubble()">
 
                 <div id="bubble_form" style="">
                     <b></b>
-x
+
                 </div>
 
 
@@ -168,11 +170,11 @@ x
                 <!--<ul id="variable_sidebar" class="live-search-list"></ul>-->
                 <!--</nav>-->
 
-                <article class="main">
-                    <!-- Page Content: Bubbles -->
-                    <div id="bubble_form" style=""></div>
+                <!--<article class="main">-->
+                    <!--&lt;!&ndash; Page Content: Bubbles &ndash;&gt;-->
+                    <!--<div id="bubble_form" style=""></div>-->
 
-                </article>
+                <!--</article>-->
 
 
 
@@ -185,6 +187,7 @@ x
                 <!--<p>Lorem ipsum...</p>-->
             </div>
             <div class="col-sm-2 sidenav">
+                right column
                 <div class="well">
                     <nav id="epsilon_sidebar" class="epsilon_sidebar"></nav>
                 </div>
@@ -319,7 +322,7 @@ x
 
 <!--testing new footer-->
     <footer class="container-fluid text-center">
-        <button onclick='report()' style="color:Black;">Submit</button>
+        <button onclick='report()' style="color:red;">Submit</button>
         <p>Privacy Tools 2.0</p>
     </footer>
 

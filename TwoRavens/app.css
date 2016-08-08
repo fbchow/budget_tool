@@ -43,6 +43,8 @@ div.panel.show {
 #bubble_form{
     /*float: right;*/
     padding-left: 20%;
+    overflow-y:scroll;
+    /*overflow-x:hidden;*/
 }
 
 #add_new_bubble{
@@ -67,23 +69,26 @@ div.panel.show {
 
 
 
+
+
+
 /*!* form styling*!*/
 
 /*Sidebar and Header*/
 /*http://www.w3schools.com/html/tryit.asp?filename=tryhtml_layout_flexbox*/
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    text-align: center;
-}
+/*.flex-container {*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /*-webkit-flex-flow: row wrap;*/
+    /*flex-flow: row wrap;*/
+    /*text-align: center;*/
+/*}*/
 
-.flex-container > * {
-    padding: 15px;
-    -webkit-flex: 1 100%;
-    flex: 1 100%;
-}
+/*.flex-container > * {*/
+    /*padding: 15px;*/
+    /*-webkit-flex: 1 100%;*/
+    /*flex: 1 100%;*/
+/*}*/
 
 .main {
     text-align: left;
@@ -97,10 +102,10 @@ footer {background: #aaa;color:white; text-align: center;}
 
 @media all and (min-width: 768px) {
     /*.variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
-    .leftpanel {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}
-    .main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}
-    .epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}
-    footer {-webkit-order:4;order:4;}
+    /*.leftpanel {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
+    /*.main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}*/
+    /*.epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}*/
+    /*footer {-webkit-order:4;order:4;}*/
 }
 
 
@@ -323,6 +328,28 @@ div.popover.variables div.popover-content.form-horizontal {
 div.popover.variables div.popover-content.form-horizontal .form-group {
     margin-bottom:0;
 }
+
+
+/*styling for three separate panels in index.html*/
+.rightcol {
+    /* border:solid 1px red;
+    position: relative;
+    top: 0%;
+    left: 50%;  */
+    border:solid 1px red;
+    overflow-x:hidden;
+    overflow-y: scroll;
+    /*height: 200px;*/
+}
+
+
+
+
+
+
+
+
+
 
 #leftpanel {
   /*  border:1px solid #ADADAD;*/
@@ -578,9 +605,9 @@ td {
 #searchvar.onX{ cursor: pointer; }
 
 #dataName{
-   position:absolute;left:40%;top:50%
-   /* margin: 0 auto;
-    text-align: center;*/
+   /*position:absolute;left:10%;top:10%;*/
+   margin: 0 auto;
+   text-align: center;
 }
 
 #globalsForm {
@@ -618,4 +645,4 @@ td {
 /*add space below top nav bar*/
 /*fixed navbar will overlay your other content, unless you add padding to the top of the <body>*/
 /*https://getbootstrap.com/components/#navbar*/
-body { padding-top: 70px; }
+body { padding-top: 70px; color:black; }
