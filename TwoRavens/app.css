@@ -45,11 +45,13 @@ div.panel.show {
     padding-left: 20%;
     overflow-y:scroll;
     /*overflow-x:hidden;*/
+    overflow-y: scroll;
 }
 
 #add_new_bubble{
     float: right;
     padding-left: 500px;
+    overflow-y:scroll;
 }
 #submit{
     float: right;
@@ -57,7 +59,21 @@ div.panel.show {
 }
 
 
-/*styling global variables table*/
+@media (min-width: 768px){
+    #center_column{
+        /*position: absolute;*/
+        /*top: 0px;*/
+        /*bottom: 0;*/
+        /*left: 0;*/
+        /*width: 75%;*/
+        height: 100%;
+        overflow: scroll;
+    }
+
+
+
+
+    /*styling global variables table*/
 #epsilon_table table, #epsilon_table th, #epsilon_table td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -92,22 +108,22 @@ div.panel.show {
 
 .main {
     text-align: left;
+    /*overflow-y: scroll;*/
 }
 
 header {background: black;color:white;}
-footer {background: #aaa;color:white; text-align: center;}
+footer {background: #aaa;color:black; text-align: center;}
 /*.variable_sidebar {background:#eee;}*/
-.leftpanel {background:#eee;}
-.epsilon_sidebar {background:#eef;}
+/*.leftpanel {background:#eee;}*/
+/*.epsilon_sidebar {background:#eef;}*/
 
-@media all and (min-width: 768px) {
-    /*.variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
-    /*.leftpanel {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*/
-    /*.main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}*/
-    /*.epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}*/
-    /*footer {-webkit-order:4;order:4;}*/
-}
-
+/*@media all and (min-width: 768px) {*/
+    /*!*.variable_sidebar {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*!*/
+    /*!*.leftpanel {text-align:left;-webkit-flex: 0 auto;flex:0 auto;-webkit-order:1;order:1;}*!*/
+    /*!*.main {-webkit-flex:5 auto;flex:5 auto;-webkit-order:2;order:2;}*!*/
+    /*!*.epsilon_sidebar {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:3;order:3;}*!*/
+    /*!*footer {-webkit-order:4;order:4;}*!*/
+/*}*/
 
 
 
@@ -369,20 +385,21 @@ div.popover.variables div.popover-content.form-horizontal .form-group {
 #leftpanel.closepanel {width:50px;}
 #leftpanel.closepanel #leftpaneltitle, #leftpanel.closepanel div.btn-toolbar, #leftpanel.closepanel div.row-fluid.closepanel {display:none;}
 
-#rightpanel {
-    border:1px solid #ADADAD;
-    width:20%;
-    height:calc(100% - 17px);
-    position:absolute;top:10px;right:10px;
-    background:#F9F9F9;
-    padding-left:16px;padding-right:0;padding-top:0; 
-    z-index:25;
-}
-#rightpanel #rightContentArea div {display:none;}
-#rightpanel #rightContentArea div.active {display:block;}
-#rightpanel.expandpanel {width:40%;}
-#rightpanel.closepanel {width:1px;}
-#rightpanel.closepanel #rightpaneltitle, #rightpanel.closepanel div.btn-group-justified, #rightpanel.closepanel div.row-fluid.closepanel {display:none;}
+/*#rightpanel {*/
+    /*border:1px solid #ADADAD;*/
+    /*width:20%;*/
+    /*height:calc(100% - 17px);*/
+    /*position:absolute;top:10px;right:10px;*/
+    /*background:#F9F9F9;*/
+    /*padding-left:16px;padding-right:0;padding-top:0; */
+    /*z-index:25;*/
+/*}*/
+
+/*#rightpanel #rightContentArea div {display:none;}*/
+/*#rightpanel #rightContentArea div.active {display:block;}*/
+/*#rightpanel.expandpanel {width:40%;}*/
+/*#rightpanel.closepanel {width:1px;}*/
+/*#rightpanel.closepanel #rightpaneltitle, #rightpanel.closepanel div.btn-group-justified, #rightpanel.closepanel div.row-fluid.closepanel {display:none;}*/
 
 div.sidepanel div.panelbar {
   position:absolute;
@@ -618,28 +635,28 @@ td {
 }
 
 
-#header-wrap {
-    display: table;
-    width: 100%;
-    background: #eeeeff;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    height: 85px;
-    /*    border-bottom: 1px solid black;*/
-}
+/*#header-wrap {*/
+    /*display: table;*/
+    /*width: 100%;*/
+    /*background: #eeeeff;*/
+    /*!*position: fixed;*!*/
+    /*z-index: 2;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*height: 85px;*/
+    /*!*    border-bottom: 1px solid black;*!*/
+/*}*/
 
-#header-wrap > div {
-    display: table-cell;
-    vertical-align: middle;
-    width: 10%;
-}
+/*#header-wrap > div {*/
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
+    /*width: 10%;*/
+/*}*/
 
-#header-wrap > div:nth-child(2) {
-    width: 80%;
-    vertical-align: top;
-    background: #eeeeff;
+/*#header-wrap > div:nth-child(2) {*/
+    /*width: 80%;*/
+    /*vertical-align: top;*/
+    /*background: #eeeeff;*/
 }
 
 /*add space below top nav bar*/
