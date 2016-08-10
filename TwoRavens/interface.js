@@ -500,11 +500,11 @@ function generate_epsilon_table () {
 
                     else {
                         epsilon_table += 
-                        "<td title='Epsilon will be edittable after putting in the necessary metadata fields.'>" +
+                        "<td title='Epsilon will be editable after putting in the necessary metadata fields.'>" +
                         "</td>" +
-                        "<td title='Accuracy will be edittable after putting in the necessary metadata fields.'>" +
+                        "<td title='Accuracy will be editable after putting in the necessary metadata fields.'>" +
                         "</td>" +
-                        "<td title='Hold status will be edittable after putting in the necessary metadata fields.'>";
+                        "<td title='Hold status will be editable after putting in the necessary metadata fields.'>";
                     }
                     
                 epsilon_table +=    
