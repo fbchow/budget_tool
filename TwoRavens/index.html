@@ -50,7 +50,8 @@
       }
 
       /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-      .row.content {height: 450px}
+      /*.row.content {height: 450px}*/
+      .row.content {height: 700px}
 
       /* Set gray background color and 100% height */
       .sidenav {
@@ -87,7 +88,7 @@
       <div>
           </span>
           <div class="navbar-header" >
-              <img src="images/dpi2.png" alt="TwoRavens" width="100" style="margin-left:2em;margin-top:-0.5em" onmouseover="about();" onmouseout="closeabout();">
+              <img src="images/dpi2.png" alt="TwoRavens" width="200" style="margin-left:2em;margin-top:-0.5em" onmouseover="about();" onmouseout="closeabout();">
 
               <div id="about" class="panel panel-default" style="position:absolute; left:140px; width:380px; display:none; z-index:50;">
                   <div class="panel-body"> </div>
@@ -103,7 +104,9 @@
               <!-- HIDE THE DATA BROWSER BUTTON FOR NOW
               <button class="btn btn-default" id="makeTable" title="Make Table" style="margin-left:1em;"><span style="font-size:1em;color:#818181; pointer-events:none;" class="glyphicon glyphicon-list-alt"></span></button>
 -->
-              <button class="btn btn-default ladda-button navbar-right" style="margin-left:2em;margin-right:1em;" id="btnEstimate" onclick="estimate('btnEstimate')" data-spinner-color="#000000" data-style="zoom-in"><span class="ladda-label">Estimate</span></button>
+
+              <!--add function for updating/ submitting global variables-->
+              <button class="btn btn-default ladda-button navbar-right" style="margin-left:2em;margin-right:1em;" id="btnEstimate" onclick="estimate('btnEstimate')" data-spinner-color="#000000" data-style="zoom-in"><span class="ladda-label">Enter</span></button>
               <button class="btn btn-default navbar-right" id="btnReset" title="Reset" onclick="reset()" style="margin-left:2.0em;"><span style="font-size:1em;color:#818181; pointer-events:none;" class="glyphicon glyphicon-repeat"></span></button>
 
               <div id="transformations" class="transformTool">
@@ -205,7 +208,7 @@
                     </div>
 
                 </div>
-                <p><a href="#">Left column</a></p>
+
             </div>
             <div class="col-sm-6 text-left" id="center_column">
                 <!--test add in center forms-->
