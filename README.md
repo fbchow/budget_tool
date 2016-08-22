@@ -1,7 +1,7 @@
 
 <h1>Harvard University Privacy Tools</h1>
 <br>
-<img src = "http://privacytools.seas.harvard.edu/files/os_shields/seas.png?m=1425310908"> Department of Computer Science, Center for Research on Computation and Society
+<img src = "http://privacytools.seas.harvard.edu/files/os_shields/seas.png?m=1425310908"> A collaborative effort between Harvard'sDepartment of Computer Science, Center for Research on Computation and Society,  Institute for Quantitative Social Science. 
 
 # Protoype of Private Zelig Budget Tool
 
