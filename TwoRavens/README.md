@@ -4,7 +4,6 @@ https://beta.dataverse.org/dataexplore/gui.html?dfId=37&
 <br><br>
 
 ![Example Page](images/budgetTool_screenshot_august2016.png)
-<img src="images/budgetTool_screenshot_august2016.png">
 
 This is a demo of the budget tool interface.
 Summer 2016
