@@ -20,4 +20,4 @@ The **Budget Tool GUI** allows data depositors to:
 
 ![Example Page](TwoRavens/images/budgetTool_screenshot_august2016.png)
 
-(Last Updated Summer 2016)
+(Last Updated August 2016)
