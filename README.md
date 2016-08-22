@@ -3,8 +3,7 @@
 <br>
 <img src = "http://privacytools.seas.harvard.edu/files/os_shields/seas.png?m=1425310908">
 
-# budget_tool
-Protoype of Private Zelig Budget Tool
+# Protoype of Private Zelig Budget Tool
 
 A National Science Foundation Secure and Trustworthy Cyberspace Project, with support from the Sloan Foundation and Google, Inc.
 
