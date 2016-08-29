@@ -17,7 +17,7 @@ The **Budget Tool GUI** allows data depositors to:
   * submit privacy budget
 
 <br>
-
+View the demo here: https://vimeo.com/180649061 
 ![Example Page](TwoRavens/images/budgetTool_screenshot_august2016.png)
 
 (Last Updated August 2016)
