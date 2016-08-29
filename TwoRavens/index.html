@@ -10,8 +10,6 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="app.css">
         <link rel="stylesheet" href="Ladda/dist/ladda-themeless.min.css">
-        <!--<link href="libraries/css/bootstrap.min.css" rel="stylesheet">-->
-        <!--<link href="libraries/css/simple-sidebar.css" rel="stylesheet">-->
 
       <!--Jquery, Boostrap, Jquery-UI JS -->
       <!--avoid sourcing errors: http://stackoverflow.com/questions/19502838/jquery-is-not-defined-twitter-bootstrap-->
@@ -27,8 +25,8 @@
       <script type="text/javascript" src="libraries/js/jquery-ui.js"></script>
 
       <!--Ladda JS-->
-        <script src="Ladda/dist/spin.min.js"></script>
-        <script src="Ladda/dist/ladda.min.js"></script>
+      <script src="Ladda/dist/spin.min.js"></script>
+      <script src="Ladda/dist/ladda.min.js"></script>
 
       <!--d3.JS-->
       <script type="text/javascript" src="d3.v3.min.js"></script>
@@ -44,10 +42,11 @@
   <body>
 
 
+  <!--TOP HEADER-->
   <nav id="option" class="navbar navbar-default" role="navigation">
       <div>
           </span>
-          <div class="navbar-header" >
+          <div class="navbar-header">
               <img src="images/dpi2.png" alt="TwoRavens" width="200" style="margin-left:2em;margin-top:-0.5em" onmouseover="about();" onmouseout="closeabout();">
 
               <div id="about" class="panel panel-default" style="position:absolute; left:140px; width:380px; display:none; z-index:50;">
@@ -61,27 +60,11 @@
               <div id="cite" class="panel panel-default" style="position:absolute; right:50%; width:380px; display:none; z-index:50;text-align:left;">
                   <div class="panel-body"> </div>
               </div>
-              <!-- HIDE THE DATA BROWSER BUTTON FOR NOW
-              <button class="btn btn-default" id="makeTable" title="Make Table" style="margin-left:1em;"><span style="font-size:1em;color:#818181; pointer-events:none;" class="glyphicon glyphicon-list-alt"></span></button>
--->
 
-              <!--add function for updating/ submitting global variables-->
+
+              <!--GLOBAL VARIABLES: UPPER RIGHT CORNER-->
               <button class="btn btn-default ladda-button navbar-right" style="margin-left:2em;margin-right:1em;" id="btnEstimate" onclick="estimate('btnEstimate')" data-spinner-color="#000000" data-style="zoom-in"><span class="ladda-label">Enter</span></button>
-              <!--<button class="btn btn-default navbar-right" id="btnReset" title="Reset" onclick="reset()" style="margin-left:2.0em;"><span style="font-size:1em;color:#818181; pointer-events:none;" class="glyphicon glyphicon-repeat"></span></button>-->
-
-
               <table align="right">
-                  <!--<tr>-->
-                      <!--<td>-->
-                          <!--Epsilon (e)-->
-                      <!--</td>-->
-                      <!--<td>-->
-                          <!--Delta (d)-->
-                      <!--</td>-->
-                      <!--<td>-->
-                          <!--Beta (B)-->
-                      <!--</td>-->
-                  <!--</tr>-->
                   <tr>
                       <td>
                           <input style="color: black; width: 60px;" type="text" placeholder="Epsilon">
@@ -94,60 +77,23 @@
                       </td>
                   </tr>
               </table>
-
-
-
-
-              <div id="transformations" class="transformTool">
-              </div>
           </div>
       </div>
   </nav>
 
-<!--<nav id="option" class="navbar navbar-default navbar-fixed-top" role="navigation">-->
-              <!--<div class="container-fluid">-->
-              <!--<div class="navbar-header" id="navbarheader">-->
-                  <!--header-->
-                  <!--<img src="images/dpi2.png" class="img-responsive" alt="Budget Tool" width="350" style="margin-left:1em;margin-top:-0.5em" >-->
-                  <!--&lt;!&ndash; name of dataset &ndash;&gt;-->
-                  <!--<h4 id="dataName" style="display:inline;" onclick="citetoggle=clickcite(citetoggle);" onmouseover="opencite();" onmouseout="closecite(citetoggle);">Dataset Name</h4>-->
 
-                  <!--<div class='btn-toolbar pull-right'>-->
-                      <!--<form class="form-inline">-->
-                          <!--<div class='btn-group'>-->
-                              <!--<div class="input-group" id="globalsForm">-->
-                                  <!--<div class="col-xs-2">-->
-                                      <!--<input type="text" class="form-control input-xs" id="epsilonbox" placeholder="epsilon ⍷">-->
-                                  <!--</div>-->
-                                  <!--<div class="col-xs-2">-->
-                                      <!--<input type="text" class="form-control input-xs" id="deltabox" placeholder="delta δ">-->
-                                  <!--</div>-->
-                                  <!--<div class="col-xs-2">-->
-                                      <!--<input type="text" class="form-control input-xs" id="betabox" placeholder="beta β">-->
-                                  <!--</div>-->
-                                  <!--<button type="submit" class="btn btn-primary btn-xs" onclick="return foo();">submit</button>-->
-                              <!--</div>-->
-                      <!--</form>-->
-                      <!--<ul class="nav navbar-nav navbar-right">-->
-                          <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Enter</a></li>-->
-                      <!--</ul>-->
-                  <!--</div>-->
-
-                  <div id="about" class="panel panel-default" style="position:absolute; left:140px; width:380px; display:none; z-index:50;">
-                    <div class="panel-body"> </div>
-                  </div>
-                </div>
-
-              </div>              
-
-
-    <div class="container-fluid text-center">
+  <!--LEFT NAVBAR-->
+  <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 <!--<p><a href="#">Link</a></p>-->
                 <div id="leftpanel" class="sidepanel container clearfix" >
 
-                    <div id="toggleLpanelicon" class="panelbar"><span>&#9679;<br/>&#9679;<br/>&#9679;<br/>&#9679;</span></div>
+                    <div id="toggleLpanelicon" class="panelbar">
+
+
+                        <span>&#9679;<br/>&#9679;<br/>&#9679;<br/>&#9679;</span>
+                    </div>
                     <div class="panel-heading text-center" id="leftpaneltitle">
                         <h3 class="panel-title">Variable Selection</h3>
                     </div>
@@ -171,6 +117,8 @@
                 </div>
 
             </div>
+
+            <!--CENTER COLUMN-->
             <div class="col-sm-6 text-left" id="center_column">
 
                 <body onload="variable_bubble()">
@@ -180,21 +128,10 @@
 
 
                 <body onload="variable_bubble(); generate_epsilon_table(); populate_variable_selection_sidebar();">
-                <!--&lt;!&ndash; Variable Selection &ndash;&gt;-->
-                <!--<nav class="variable_sidebar">-->
 
-                <!--&lt;!&ndash; Variable List &ndash;&gt;-->
-                <!--<ul id="variable_sidebar" class="live-search-list"></ul>-->
-                <!--</nav>-->
-
-                <!--<article class="main">-->
-                    <!--&lt;!&ndash; Page Content: Bubbles &ndash;&gt;-->
-                    <!--<div id="bubble_form" style=""></div>-->
-
-                <!--</article>-->
 
             </div>
-            <div class="col-sm-4 sidenav">
+            <div class="col-sm-4 sidenav" id="right_column">
                 <div class="well">
                     <nav id="epsilon_sidebar" class="epsilon_sidebar"></nav>
 
@@ -204,8 +141,6 @@
         </div>
     </div>
 
-
-<!-- left panel div used ot got here-->
 
 <!--</nav>-->
 
