@@ -5,16 +5,10 @@ This prototype system will allow researchers with sensitive datasets to make dif
 
 As an intern, I worked on the beginning stages of the interactive GUI and researched applications of differential privacy software. I collaborated with [Nabib Ahmed](anhttps://github.com/Nashmed28), and I was advised by [Dr. James Honaker](http://hona.kr/) and [Jack Murtagh](https://scholar.harvard.edu/jmurtagh).      
 
-Created GUI for application of differentially private algorithms on sensitive research data using HTML, CSS, JS, jQuery, d3.JS
-o Collaborated with cross-functional research team of computer scientists, lawyers, and social scientists on building backend data pipeline to front-end interface
-o Consulted lab interns on statistics workflows for R programming, reproducibility, causal inference
-
-
 # The PSI (Private Data Sharing Interface)
-is a system of interlocking statistical tools for data exploration, analysis, and meta-analysis.  The first to be released is an interface for quantitative analysis, that allows users at all levels of statistical expertise to explore their data, describe their substantive understanding of the data, and appropriately construct statistical models. This integrates with (Dataverse) [http://dataverse.org] [GitHub](https://github.com/IQSS/dataverse)) and the [Zelig Project] (http://zeligproject.org)through a portable, lightweight, browser-based and gesture-driven interface, allowing users to run statistical models available in Zelig on data archived in Dataverse.  Project page and publications available at: http://privacytools.seas.harvard.edu/. 
+[PSI](https://beta.dataverse.org/custom/DifferentialPrivacyPrototype/) is a system of interlocking statistical tools for data exploration, analysis, and meta-analysis.  The first to be released is an interface for quantitative analysis, that allows users at all levels of statistical expertise to explore their data, describe their substantive understanding of the data, and appropriately construct statistical models. This integrates with [Dataverse](http://dataverse.org) and the [Zelig Project](http://zeligproject.org) through a portable, lightweight, browser-based and gesture-driven interface, allowing users to run statistical models available in Zelig on data archived in Dataverse.    
 <br><br>
-The demo of the **Budget Tool Interface** using replication data from Fearon and Laitin's 2003 article, *Ethnicity, Insurgency, and Civil War* is demonstrated below:  
-
+The demo of the [Budget Tool Interface] (https://beta.dataverse.org/custom/DifferentialPrivacyPrototype/UI/code/interface.html?fileid=20&UI=1) uses replication data from Fearon and Laitin's 2003 article *"Ethnicity, Insurgency, and Civil War"*.    
 
 The [Budget Tool GUI](https://beta.dataverse.org/custom/DifferentialPrivacyPrototype/UI/code/interface.html?fileid=20&UI=1) allows data depositors to:
   * select variables of interest
