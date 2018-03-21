@@ -1,7 +1,7 @@
 # Zelig Budget Tool Prototype  
 
 <a href="http://datascience.iq.harvard.edu/tworavens"><img src="budget_tool/images/dpi2.png" align="left"></a> 
-This prototype system will allow researchers with sensitive datasets to make differentially private statistics about their data available through data repositories using the [Dataverse](https://dataverse.org/) platform. A paper describing our system can be found on [Arxiv](https://arxiv.org/pdf/1609.04340.pdf).      
+This prototype system will allow researchers with sensitive datasets to make differentially private statistics about their data available through data repositories using the [Dataverse](https://dataverse.org/) platform. A paper describing our system can be found **[here in this ArXiv link](https://arxiv.org/pdf/1609.04340.pdf)**.      
 
 As an intern, I worked on the beginning stages of the interactive GUI and researched applications of differential privacy software. I collaborated with [Nabib Ahmed](anhttps://github.com/Nashmed28), and I was advised by [Dr. James Honaker](http://hona.kr/) and [Jack Murtagh](https://scholar.harvard.edu/jmurtagh).      
 
